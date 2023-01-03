@@ -1,1 +1,37 @@
-
+byte byteValue;
+Console.WriteLine("Значения переменной byteValue (8 бит) = 0 to 255;");
+sbyte sb;
+Console.WriteLine("Значения переменной sbValue (8 бит) = -128 to 127;");
+short shValue;
+Console.WriteLine("Значения переменной shValue (16 бит) = -32768 to 32767;");
+ushort ushValue;
+Console.WriteLine("Значения переменной ushValue (16 бит) = 0 to 65535;");
+int iValue;
+Console.WriteLine("Значения переменной iValue (32 бит) = –2147483648 " +
+    "to 2147483647;");
+uint uiValue;
+Console.WriteLine("Значения переменной uiValue (32 бит) = 0 to 4294967295;");
+long lValue;
+Console.WriteLine("Значения переменной lValue (64 бит) = -9223372036854775808 " +
+    "to 9223372036854775807;");
+ulong ulValue;
+Console.WriteLine("Значения переменной ulValue (64 бит) = 0 to " +
+    "18446744073709551615;");
+float flValue;
+Console.WriteLine("Значения переменной flValue (32 бит) = 5E-45 to 3,4E+38 " +
+    "(7 знаком после запятой);");
+double dblValue;
+Console.WriteLine("Значения переменной dblValue (62 бит) = 5E-324 to " +
+    "1,7Е+308 (15 знаком после запятой);");
+decimal decValue;
+Console.WriteLine("Значения переменной declValue (128 бит) = 1Е-28 до 7,9Е+28 "
+    + "(28 знаком после запятой, чтобы избежать округлений);");
+char chValue;
+Console.WriteLine("Значение переменной chValue " +
+    "Строковое значение (одинарный тип)");
+string strValue;
+Console.WriteLine("Значение переменной strValue " +
+    "Строковое значение (Привет мир!)");
+bool boolValue;
+Console.WriteLine("Значение переменной bValue " +
+    "Логическое значение - true or false");
