@@ -1,0 +1,16 @@
+int money;
+int priceCrystals = 5;
+int countCrystal;
+bool enoughMoney;
+
+Console.WriteLine("Добро пожаловать в магазин! Стоимость одного кристала: " +
+     +priceCrystals + "тубриков");
+Console.Write("Сколько у вас денег:");
+money = Convert.ToInt32(Console.ReadLine());
+Console.Write("Сколько кристалов вы хотите купить?");
+countCrystal = Convert.ToInt32(Console.ReadLine());
+enoughMoney = money >= countCrystal * priceCrystals;
+countCrystal *= Convert.ToInt32(enoughMoney);
+money -= countCrystal * priceCrystals;
+Console.Write("У вас " + countCrystal + " кристалов и осталось " + money +
+    " тубриков");
