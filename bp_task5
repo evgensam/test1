@@ -1,0 +1,6 @@
+string name = "Иванов";
+string suname = "Ваня";
+Console.WriteLine("Имя: " + name + "Фамилия: " + suname);
+name = "Ваня";
+suname = "Иванов";
+Console.WriteLine("Имя: " + name + "Фамилия: " + suname);
