@@ -1,0 +1,13 @@
+int numberOfPictures;
+int totalNumberOfPictures;
+int NumberOfRows;
+int restOfPictures;
+
+Console.Write("Введите количество картинок в ряде");
+numberOfPictures = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите общее количество картинок в альбоме:");
+totalNumberOfPictures = Convert.ToInt32(Console.ReadLine());
+NumberOfRows = totalNumberOfPictures / numberOfPictures;
+restOfPictures = totalNumberOfPictures % numberOfPictures;
+Console.Write("Всего заполнено " + NumberOfRows + " рядов " +
+    "осталось " + restOfPictures + " картинок");
