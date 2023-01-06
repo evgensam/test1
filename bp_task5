@@ -1,11 +1,11 @@
 string name = "Иванов";
-string suname = "Ваня";
-string correctData;
+string surname = "Ваня";
+string tempName;
 
-Console.WriteLine("Имя: " + name + " Фамилия: " + suname);
+Console.WriteLine("Имя: " + name + " Фамилия: " + surname);
 
-correctData = name;
-name = suname;
-suname = correctData;
+tempName = name;
+name = surname;
+surname = tempName;
 
-Console.WriteLine("Имя: " + name + " Фамилия: " + suname);
+Console.WriteLine("Имя: " + name + " Фамилия: " + surname);
