@@ -1,14 +1,14 @@
-int timeMinOneOldLady = 10;
-int timeMinOneHour = 60;
-int timeAmoutHourOldLady;
+int timeMinutesOneOldlady = 10;
+int timeMinutesOneHour = 60;
+int timeAmoutHours;
 int amoutOfOldLady;
-int timeAmoutMinOldLady;
+int timeAmoutMinutes;
 
 Console.Write("Введите кол-во старушек:");
 amoutOfOldLady = Convert.ToInt32(Console.ReadLine());
 
-timeAmoutHourOldLady = timeMinOneOldLady* amoutOfOldLady/ timeMinOneHour;
-timeAmoutMinOldLady = timeMinOneOldLady * amoutOfOldLady % timeMinOneHour;
+timeAmoutHours = timeMinutesOneOldlady * amoutOfOldLady/ timeMinutesOneHour;
+timeAmoutMinutes = timeMinutesOneOldlady * amoutOfOldLady % timeMinutesOneHour;
 
-Console.Write("Вы должны отстоятьт в очереди " + timeAmoutHourOldLady +
-    " час " + timeAmoutMinOldLady + " минут");
+Console.Write("Вы должны отстоятьт в очереди " + timeAmoutHours +
+    " час " + timeAmoutMinutes + " минут");
