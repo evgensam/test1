@@ -1,51 +1,12 @@
-string nameUser;
-float physicalDamageUser;
-uint magicDamageUser;
-long amountOfLifeUser;
+string userName;
+float userPhysicalDamage;
+uint userMagicDamage;
+long userAmountOfLife;
 
+int userArmor;
+bool isUserDodge;
+byte userMagicalResistance;
 
-int armorUser;
-bool dodgeUser;
-byte magicalResistanceUser;
-
-ushort amountOfMoney;
-short balanceofMoney;
-byte costOfArmorUser; 
-
-//byte byteValue;
-//Console.WriteLine("Значения переменной byteValue (8 бит) = 0 to 255;");
-//sbyte sbyteValue;
-//Console.WriteLine("Значения переменной sbyteValue (8 бит) = -128 to 127;");
-//short shortValue;
-//Console.WriteLine("Значения переменной shortValue (16 бит) = -32768 to 32767;");
-//ushort ushortValue;
-//Console.WriteLine("Значения переменной ushortValue (16 бит) = 0 to 65535;");
-//int intValue;
-//Console.WriteLine("Значения переменной intValue (32 бит) = –2147483648 " +
-//    "to 2147483647;");
-//uint uintValue;
-//Console.WriteLine("Значения переменной uintValue (32 бит) = 0 to 4294967295;");
-//long longValue;
-//Console.WriteLine("Значения переменной longValue (64 бит) = -9223372036854775808 " +
-//    "to 9223372036854775807;");
-//ulong ulongValue;
-//Console.WriteLine("Значения переменной ulongValue (64 бит) = 0 to " +
-//    "18446744073709551615;");
-//float floatValue;
-//Console.WriteLine("Значения переменной floatlValue (32 бит) = 5E-45 to 3,4E+38 " +
-//    "(7 знаком после запятой);");
-//double doublelValue;
-//Console.WriteLine("Значения переменной doubleValue (62 бит) = 5E-324 to " +
-//    "1,7Е+308 (15 знаком после запятой);");
-//decimal decimalValue;
-//Console.WriteLine("Значения переменной decimallValue (128 бит) = 1Е-28 до 7,9Е+28 "
-//    + "(28 знаком после запятой, чтобы избежать округлений);");
-//char charValue;
-//Console.WriteLine("Значение переменной charValue " +
-//    "Строковое значение (одинарный тип)");
-//string stringValue;
-//Console.WriteLine("Значение переменной stringValue " +
-//    "Строковое значение (Привет мир!)");
-//bool boolValue;
-//Console.WriteLine("Значение переменной booValue " +
-//    "Логическое значение - true or false");
+ushort userAmountOfMoney;
+short userBalanceofMoney;
+byte userCostOfArmor;
