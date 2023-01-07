@@ -1,0 +1,11 @@
+string exit;
+while (true)
+{
+    exit = Console.ReadLine();
+    //  age++;
+    if (exit == "exit")
+    {
+        break;
+    }
+   
+}
