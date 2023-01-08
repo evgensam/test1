@@ -1,4 +1,8 @@
-for (int i = 5; i <= 96; i += 7)
+int firstValue = 5; 
+int lastValue = 96;
+int step = 7;
+
+for (int i = firstValue; i <= lastValue; i += step)
 {
     Console.WriteLine(i);
 }
