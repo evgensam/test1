@@ -1,10 +1,10 @@
 int sum = 0;
 int divider1 = 3;
 int divider2 = 5;
-int maximumValue = 100;
+int maximumValue = 101;
 Random rand = new Random();
 int number = rand.Next(0, maximumValue);
-Console.WriteLine(number);
+Console.WriteLine("Максимальное значение в данной итерации: " + number);
 
 for (int i = 1; i <= number; i++)
 {
@@ -14,3 +14,4 @@ for (int i = 1; i <= number; i++)
         sum += i;
     }
 }
+Console.WriteLine(sum);
