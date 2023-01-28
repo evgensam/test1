@@ -1,0 +1,91 @@
+float rub = 150000;
+float usd = 7900;
+float eur = 7500 + 1700;
+
+float convertToUSD = 69;
+float convertToEUR = 75;
+float outputKurs;
+float imputKurs;
+float inputAmountMony = 0;
+
+Console.WriteLine("Ваш баланс: " + rub + " рублей" + usd +
+    " долларов" + eur + " евро");
+
+Console.WriteLine("Выбирете кошелек с которого хотите обменять");
+Console.WriteLine("1 - рубли");
+Console.WriteLine("2 - доллары");
+Console.WriteLine("3 - евро");
+Console.WriteLine("4 - выход");
+outputKurs = Convert.ToSingle((Console.ReadLine()));
+
+while (outputKurs > 0 && outputKurs <= 4)
+{
+
+    if (outputKurs == 4)
+    {
+        break;
+    }
+
+
+    else
+    {
+        Console.WriteLine("Выбирете валюту на которую хотите обменять:");
+        Console.WriteLine("1 - рубли");
+        Console.WriteLine("2 - доллары");
+        Console.WriteLine("3 - евро");
+        Console.WriteLine("4 - выход");
+        imputKurs = Convert.ToSingle((Console.ReadLine()));
+        Console.WriteLine("Введите количество денег к обмену");
+        inputAmountMony = Convert.ToSingle((Console.ReadLine()));
+
+        if (outputKurs == 1 && imputKurs == 2)
+        {
+            rub -= inputAmountMony;
+            usd += inputAmountMony / convertToUSD;
+            Console.WriteLine("Рубли: " + rub);
+            Console.WriteLine("Доллары: " + usd);
+        }
+
+        if (outputKurs == 1 && imputKurs == 3)
+        {
+            rub -= inputAmountMony;
+            eur += inputAmountMony / convertToEUR;
+            Console.WriteLine("Рубли: " + rub);
+            Console.WriteLine("Евро: " + eur);
+        }
+
+        if (outputKurs == 2 && imputKurs == 1)
+        {
+            usd -= inputAmountMony;
+            rub += inputAmountMony * convertToUSD;
+            Console.WriteLine("Доллары: " + usd);
+            Console.WriteLine("Рубли: " + rub);
+        }
+
+        if (outputKurs == 2 && imputKurs == 3)
+        {
+            usd -= inputAmountMony;
+            eur += inputAmountMony * convertToEUR;
+            Console.WriteLine("Доллары: " + usd);
+            Console.WriteLine("Евро: " + eur);
+        }
+
+
+        if (imputKurs == 4)
+        {
+            break;
+        }
+
+        Console.WriteLine("Выбирете кошелек с которого хотите обменять");
+        Console.WriteLine("1 - рубли");
+        Console.WriteLine("2 - доллары");
+        Console.WriteLine("3 - евро");
+        Console.WriteLine("4 - выход");
+        outputKurs = Convert.ToSingle((Console.ReadLine()));
+
+        if (outputKurs == 4)
+        {
+            break;
+        }
+    }
+}
