@@ -9,6 +9,7 @@ int choiceExit = 4;
 
 float convertRubToUsd = 74;
 float convertRubToEur = 79;
+float RubExchangeRate = 1;
 
 float outputExchangeRate;
 float imputExchangeRate;
@@ -75,7 +76,7 @@ while (outputExchangeRate >= choiceRub && outputExchangeRate < choiceExit)
     else if (outputExchangeRate == choiceUsd && imputExchangeRate == choiceRub)
     {
         usd -= inputAmountMony;
-        rub += inputAmountMony * convertRubToUsd;
+        rub += inputAmountMony * convertRubToUsd/RubExchangeRate;
         Console.WriteLine("Доллары: " + usd);
         Console.WriteLine("Рубли: " + rub);
     }
@@ -83,7 +84,7 @@ while (outputExchangeRate >= choiceRub && outputExchangeRate < choiceExit)
     else if (outputExchangeRate == choiceEur && imputExchangeRate == choiceRub)
     {
         eur -= inputAmountMony;
-        rub += inputAmountMony * convertRubToEur;
+        rub += inputAmountMony * convertRubToEur/RubExchangeRate;
         Console.WriteLine("Доллары: " + usd);
         Console.WriteLine("Евро: " + eur);
     }
