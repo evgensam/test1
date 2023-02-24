@@ -1,0 +1,58 @@
+string SetNameInput = "SetName";
+string? SetNameСonclusion = "не задано";
+string SetDamageInput = "SetDamage";
+string? SetDamageСonclusion = "не задан";
+string SetArmorInput = "SetArmor";
+string? SetArmorСonclusion = "не задана";
+string? SetHealthInput = "SetHealth";
+string? SetHealthСonclusion = "не задано";
+string WriteHeroInput = "WriteHero";
+string? ConsoleClear = "ConsoleClear";
+string Exit = "Exit";
+string? inputCommand;
+
+Console.WriteLine("Создайте персонажа, используя команды ниже");
+Console.WriteLine("SetName - создать имя");
+Console.WriteLine("SetDamage - урон");
+Console.WriteLine("SetArmor - защита");
+Console.WriteLine("SetHealth - здоровье");
+Console.WriteLine("WriteHero - отобразить характеристики персонажа");
+Console.WriteLine("ConsoleClear - Очистить консоль");
+Console.WriteLine("Exit - выход");
+
+inputCommand = Console.ReadLine();
+
+while (inputCommand != Exit)
+{
+    if (inputCommand == SetNameInput)
+    {
+        Console.WriteLine("Введите значение имя");
+        SetNameСonclusion = Console.ReadLine();
+    }
+    else if (inputCommand == SetDamageInput)
+    {
+        Console.WriteLine("Введите значение урона");
+        SetDamageСonclusion = Console.ReadLine();
+    }
+    else if (inputCommand == SetArmorInput)
+    {
+        Console.WriteLine("Введите значение брони");
+        SetArmorСonclusion = Console.ReadLine();
+    }
+    else if (inputCommand == SetHealthInput)
+    {
+        Console.WriteLine("Введите значение здоровья");
+        SetHealthСonclusion = Console.ReadLine();
+    }
+    else if (inputCommand == ConsoleClear)
+    {
+        Console.Clear();
+    }
+    else if (inputCommand == WriteHeroInput)
+    {
+        Console.WriteLine("Характеистики персонажа \n" + "Имя: "
+            + SetNameСonclusion + "\n" + "Урон: " +  SetDamageСonclusion + "\n" + "Защита: "
+            + SetArmorСonclusion + "\n" + "Здоровье: " + SetHealthСonclusion);
+    }
+    inputCommand = Console.ReadLine();
+}
