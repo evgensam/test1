@@ -1,0 +1,21 @@
+string Password = "password";
+string EnterPassword;
+int NumberAttempts = 3;
+
+for (int i = 0; i < NumberAttempts; i++)
+{
+    Console.WriteLine("Введите пароль");
+    Console.Write(i);
+    EnterPassword = Console.ReadLine();
+
+    if (EnterPassword == Password)
+    {
+        Console.WriteLine("Секретное слово открыто");
+        break;
+    }
+    else if (i == NumberAttempts-1)
+    {
+        Console.WriteLine("Вы исчерпали количество попыток");
+    }
+}
+Console.ReadKey();
