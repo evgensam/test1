@@ -1,0 +1,17 @@
+Console.WriteLine("Введите Имя");
+NemeInput = Console.ReadLine();
+Console.WriteLine("Введите символ");
+SimbolInput = Console.ReadLine();
+NumberSymbols = NemeInput.Length;
+
+for (int i = 0; i <= NumberSymbols + 1; i++)
+{
+    Console.Write(SimbolInput);
+}
+Console.WriteLine();
+Console.WriteLine(SimbolInput + NemeInput + SimbolInput);
+for (int i = 0; i <= NumberSymbols + 1; i++)
+{
+    Console.Write(SimbolInput);
+}
+Console.ReadKey();
