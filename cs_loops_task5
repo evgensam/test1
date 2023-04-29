@@ -1,105 +1,129 @@
-float rub = 150000;
-float usd = 7900;
-float eur = 7500 + 1700;
+ float numberOfRub = 150000;
+            float numberOfUsd = 7900;
+            float numberOfEur = 7500 + 1700;
 
-int choiceRub = 1;
-int choiceUsd = 2;
-int choiceEur = 3;
-int choiceExit = 4;
+            int choiceRub = 1;
+            int choiceUsd = 2;
+            int choiceEur = 3;
+            int choiceExit = 4;
 
-float convertRubToUsd = 74;
-float convertRubToEur = 79;
-float rubExchangeRate = 1;
-float rubExchangeUsd = rubExchangeRate / convertRubToUsd;
-float rubExchangeEur = rubExchangeRate / convertRubToEur;
-float UsdExchangeEur = convertRubToUsd / convertRubToEur;
-float EurExchangeUSD = convertRubToEur / convertRubToUsd;
-float outputExchangeRate;
-float imputExchangeRate;
-float inputAmountMony;
+            float convertRubToUsd = 74;
+            float convertRubToEur = 79;
+            float rubExchangeRate = 1;
+            float rubExchangeUsd = rubExchangeRate / convertRubToUsd;
+            float rubExchangeEur = rubExchangeRate / convertRubToEur;
+            float UsdExchangeEur = convertRubToUsd / convertRubToEur;
+            float EurExchangeUSD = convertRubToEur / convertRubToUsd;
+            float outputExchangeRate = 1;
+            float imputExchangeRate = 1;
+            float inputAmountMoney = 1;
 
-Console.WriteLine("Ваш баланс: " + rub + " рублей" + usd +
-    " долларов" + eur + " евро");
 
-Console.WriteLine("Выбирете кошелек с которого хотите обменять");
-Console.WriteLine(choiceRub + " - рубли");
-Console.WriteLine(choiceUsd + " - доллары");
-Console.WriteLine(choiceEur + " - евро");
-Console.WriteLine(choiceExit + " - выход");
-outputExchangeRate = Convert.ToSingle((Console.ReadLine()));
+            while (imputExchangeRate != choiceExit || outputExchangeRate != choiceExit)
+            {
+                Console.WriteLine("Ваш баланс: " + numberOfRub + " рублей" + numberOfUsd +
+" долларов" + numberOfEur + " евро");
 
-while (outputExchangeRate >= choiceRub && outputExchangeRate < choiceExit)
-{
-    Console.WriteLine("Выбирете валюту на которую хотите обменять:");
-    Console.WriteLine(choiceRub + " - рубли");
-    Console.WriteLine(choiceUsd + " - доллары");
-    Console.WriteLine(choiceEur + " - евро");
-    Console.WriteLine(choiceExit + " - выход");
-    imputExchangeRate = Convert.ToSingle((Console.ReadLine()));
-    Console.WriteLine("Введите количество денег к обмену");
-    inputAmountMony = Convert.ToSingle((Console.ReadLine()));
+                Console.WriteLine("Выбирете кошелек с которого хотите обменять");
+                Console.WriteLine(choiceRub + " - рубли");
+                Console.WriteLine(choiceUsd + " - доллары");
+                Console.WriteLine(choiceEur + " - евро");
+                Console.WriteLine(choiceExit + " - выход");
+                outputExchangeRate = Convert.ToSingle((Console.ReadLine()));
+                if (outputExchangeRate < choiceRub || outputExchangeRate > choiceExit)
+                {
+                    Console.WriteLine("Некоректный ввод");
+                    break;
 
-    if (inputAmountMony > rub && inputAmountMony > usd && inputAmountMony > eur)
-    {
-        Console.WriteLine("На вашем балансе недостаточно денег");
-    }
-    else if (outputExchangeRate == choiceRub && imputExchangeRate == choiceUsd)
-    {
-        rub -= inputAmountMony;
-        usd += inputAmountMony * rubExchangeUsd;
-        Console.WriteLine("Рубли: " + rub);
-        Console.WriteLine("Доллары: " + usd);
-    }
-    else if (outputExchangeRate == choiceRub && imputExchangeRate == choiceEur)
-    {
-        rub -= inputAmountMony;
-        eur += inputAmountMony * rubExchangeEur;
-        Console.WriteLine("Рубли: " + rub);
-        Console.WriteLine("Евро: " + eur);
-    }
-    else if (outputExchangeRate == choiceUsd && imputExchangeRate == choiceRub)
-    {
-        usd -= inputAmountMony;
-        rub += inputAmountMony * convertRubToUsd;
-        Console.WriteLine("Доллары: " + usd);
-        Console.WriteLine("Рубли: " + rub);
-    }
-    else if (outputExchangeRate == choiceUsd && imputExchangeRate == choiceEur)
-    {
-        usd -= inputAmountMony;
-        eur += inputAmountMony * UsdExchangeEur;
-        Console.WriteLine("Доллары: " + usd);
-        Console.WriteLine("Евро: " + eur);
-    }
-    else if (outputExchangeRate == choiceUsd && imputExchangeRate == choiceRub)
-    {
-        usd -= inputAmountMony;
-        rub += inputAmountMony * convertRubToUsd;
-        Console.WriteLine("Доллары: " + usd);
-        Console.WriteLine("Рубли: " + rub);
-    }
-    else if (outputExchangeRate == choiceEur && imputExchangeRate == choiceRub)
-    {
-        eur -= inputAmountMony;
-        rub += inputAmountMony * convertRubToEur;
-        Console.WriteLine("Доллары: " + usd);
-        Console.WriteLine("Евро: " + eur);
-    }
-    else if (outputExchangeRate == choiceEur && imputExchangeRate == choiceUsd)
-    {
-        eur -= inputAmountMony;
-        usd += inputAmountMony * EurExchangeUSD;
-        Console.WriteLine("Доллары: " + usd);
-        Console.WriteLine("Евро: " + eur);
-    }
-    else
-    {
-        Console.WriteLine("Некорректный обмен, одинаковый тип валюты менять нельзя");
-    }
-    Console.WriteLine("Выбирете кошелек с которого хотите обменять");
-    Console.WriteLine(choiceRub + " - рубли");
-    Console.WriteLine(choiceUsd + " - доллары");
-    Console.WriteLine(choiceEur + " - евро");
-    Console.WriteLine(choiceExit + " - выход");
-    outputExchangeRate = Convert.ToSingle((Console.ReadLine()));
-}
+                }
+
+                else if (outputExchangeRate > choiceRub || outputExchangeRate < choiceExit)
+                {
+                    Console.WriteLine("Выбирете валюту на которую хотите обменять:");
+                    Console.WriteLine(choiceRub + " - рубли");
+                    Console.WriteLine(choiceUsd + " - доллары");
+                    Console.WriteLine(choiceEur + " - евро");
+                    Console.WriteLine(choiceExit + " - выход");
+                    imputExchangeRate = Convert.ToSingle((Console.ReadLine()));                  
+                }
+                
+                else if (imputExchangeRate < choiceRub || imputExchangeRate > choiceExit)
+                {
+                    Console.WriteLine("Некоректный ввод");
+                    break;
+
+                }
+
+
+
+                else if (imputExchangeRate > choiceRub || imputExchangeRate < choiceExit)
+                {
+                    Console.WriteLine("Введите количество денег к обмену");
+
+                    inputAmountMoney = Convert.ToSingle((Console.ReadLine()));
+                }
+
+
+                else if (inputAmountMoney > numberOfRub && inputAmountMoney > numberOfUsd && inputAmountMoney > numberOfEur)
+                {
+                    Console.WriteLine("На вашем балансе недостаточно денег");
+                }
+                else if (outputExchangeRate == choiceRub && imputExchangeRate == choiceUsd)
+                {
+                    numberOfRub -= inputAmountMoney;
+                    numberOfUsd += inputAmountMoney * rubExchangeUsd;
+                    Console.WriteLine("Рубли: " + numberOfRub);
+                    Console.WriteLine("Доллары: " + numberOfUsd);
+                }
+                else if (outputExchangeRate == choiceRub && imputExchangeRate == choiceEur)
+                {
+                    numberOfRub -= inputAmountMoney;
+                    numberOfEur += inputAmountMoney * rubExchangeEur;
+                    Console.WriteLine("Рубли: " + numberOfRub);
+                    Console.WriteLine("Евро: " + numberOfEur);
+                }
+                else if (outputExchangeRate == choiceUsd && imputExchangeRate == choiceRub)
+                {
+                    numberOfUsd -= inputAmountMoney;
+                    numberOfRub += inputAmountMoney * convertRubToUsd;
+                    Console.WriteLine("Доллары: " + numberOfUsd);
+                    Console.WriteLine("Рубли: " + numberOfRub);
+                }
+                else if (outputExchangeRate == choiceUsd && imputExchangeRate == choiceEur)
+                {
+                    numberOfUsd -= inputAmountMoney;
+                    numberOfEur += inputAmountMoney * UsdExchangeEur;
+                    Console.WriteLine("Доллары: " + numberOfUsd);
+                    Console.WriteLine("Евро: " + numberOfEur);
+                }
+                else if (outputExchangeRate == choiceUsd && imputExchangeRate == choiceRub)
+                {
+                    numberOfUsd -= inputAmountMoney;
+                    numberOfRub += inputAmountMoney * convertRubToUsd;
+                    Console.WriteLine("Доллары: " + numberOfUsd);
+                    Console.WriteLine("Рубли: " + numberOfRub);
+                }
+                else if (outputExchangeRate == choiceEur && imputExchangeRate == choiceRub)
+                {
+                    numberOfEur -= inputAmountMoney;
+                    numberOfRub += inputAmountMoney * convertRubToEur;
+                    Console.WriteLine("Доллары: " + numberOfUsd);
+                    Console.WriteLine("Евро: " + numberOfEur);
+                }
+                else if (outputExchangeRate == choiceEur && imputExchangeRate == choiceUsd)
+                {
+                    numberOfEur -= inputAmountMoney;
+                    numberOfUsd += inputAmountMoney * EurExchangeUSD;
+                    Console.WriteLine("Доллары: " + numberOfUsd);
+                    Console.WriteLine("Евро: " + numberOfEur);
+                }
+                else if (outputExchangeRate == choiceEur && imputExchangeRate == choiceUsd)
+                {
+                    numberOfEur -= inputAmountMoney;
+                    numberOfUsd += inputAmountMoney * EurExchangeUSD;
+                    Console.WriteLine("Доллары: " + numberOfUsd);
+                    Console.WriteLine("Евро: " + numberOfEur);
+                }
+                }
+                Console.ReadKey();
+            }
