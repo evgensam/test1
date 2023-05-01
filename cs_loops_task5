@@ -67,7 +67,7 @@ namespace CSLight
                     Console.WriteLine(choiceRub + " - рубли");
                     Console.WriteLine(choiceUsd + " - доллары");
                     Console.WriteLine(choiceEur + " - евро");
-                    Console.WriteLine(choiceExit + " - выход");
+                    Console.WriteLine(choiceExit + " - выход в предыдущее меню");
                     imputExchangeRate = Convert.ToSingle((Console.ReadLine()));
 
                     switch (imputExchangeRate)
@@ -104,14 +104,14 @@ namespace CSLight
                                 Console.WriteLine("Выбор выполнен успешно");
                                 Console.WriteLine("Введите количество евро к обмену");
                                 inputAmountMoney = Convert.ToSingle((Console.ReadLine()));
-                                if (numberOfEur > 0 && numberOfEur != 0)
+                                if (numberOfEur >= 0)
                                 {
                                     numberOfEur -= inputAmountMoney;
                                     numberOfRub += inputAmountMoney * convertEurToRub;
                                     Console.WriteLine("Обмен выплолнен успешно, ваш баланс:");
                                     Console.WriteLine("Рубли: " + numberOfRub);
                                     Console.WriteLine("Доллары: " + numberOfUsd);
-                                    Console.WriteLine("Доллары: " + numberOfEur);
+                                    Console.WriteLine("Евро: " + numberOfEur);
                                 }
                                 else
                                 {
@@ -191,11 +191,11 @@ namespace CSLight
                                     Console.WriteLine("Обмен выплолнен успешно, ваш баланс:");
                                     Console.WriteLine("Рубли: " + numberOfRub);
                                     Console.WriteLine("Доллары: " + numberOfUsd);
-                                    Console.WriteLine("Доллары: " + numberOfEur);
+                                    Console.WriteLine("Евро: " + numberOfEur);
                                 }
                                 else
                                 {
-                                    Console.WriteLine("У вас недостаточно евро для обмена");
+                                    Console.WriteLine("У вас недостаточно рублей для обмена");
                                     continue;
                                 }
                             }
