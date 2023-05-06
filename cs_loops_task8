@@ -1,21 +1,37 @@
-string Password = "password";
-string EnterPassword;
-int NumberAttempts = 3;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-for (int i = 0; i < NumberAttempts; i++)
+namespace ConsoleApp1
 {
-    Console.WriteLine("Введите пароль");
-    Console.Write(i);
-    EnterPassword = Console.ReadLine();
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string password = "password";
+            string enterPassword;
+            int numberAttempts = 3;
 
-    if (EnterPassword == Password)
-    {
-        Console.WriteLine("Секретное слово открыто");
-        break;
-    }
-    else if (i == NumberAttempts-1)
-    {
-        Console.WriteLine("Вы исчерпали количество попыток");
+            for (int i = 0; i < numberAttempts; i++)
+            {
+                Console.WriteLine("У вас всего " + numberAttempts + " попытки");
+                Console.WriteLine(i + 1 + " попытка");
+                Console.WriteLine("Введите пароль");
+                enterPassword = Console.ReadLine();
+                
+                if (enterPassword == password)
+                {
+                    Console.WriteLine("Секретное слово открыто");
+                    break;
+                }
+                else if (i == numberAttempts - 1)
+                {
+                    Console.WriteLine("Вы исчерпали количество попыток");
+                }
+            }
+            Console.ReadKey();
+        }
     }
 }
-Console.ReadKey();
