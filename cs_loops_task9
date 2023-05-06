@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int initialNumber = 100;
+            int lastNumber = 1000;
+            int test;
+            bool isNutural = true;
+          
+            for (int i = initialNumber; i <= lastNumber; i++)
+            {
+                Random rand = new Random();
+                int number = rand.Next(1, 27);
+                test = i / number;
+                Console.WriteLine(number);
+                Console.WriteLine(test);
+                if (isNutural == true)
+                {
+                    Console.WriteLine(i);
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            Console.ReadLine();
+            }
+        }
+    }
