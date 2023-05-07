@@ -18,14 +18,14 @@ namespace ConsoleApp1
             int numberN = random.Next(minimumNumberN, maximumNumberN);
             Console.WriteLine("Число N = " + numberN);
 
-            for (int i = 0; i <= numberN; i++)
+            for (int i = 1; i <= numberN; i++)
             {
                 lastNumber = lastNumber * initialNumber;
                 Console.WriteLine(lastNumber);
 
                 if (lastNumber > numberN)
                 {
-                    Console.WriteLine("2 в " + i + " степени искомое число");
+                    Console.WriteLine(initialNumber + " в " + i + " степени искомое число");
                     Console.WriteLine(lastNumber + " >" + " числа N = " + numberN);
                     break;
                 }
