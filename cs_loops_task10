@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int initialNumber = 2;
+            int lastNumber = 1;
+            int minimumNumberN = 1;
+            int maximumNumberN = 100;
+            Random random = new Random();
+            int numberN = random.Next(minimumNumberN, maximumNumberN);
+            Console.WriteLine("Число N = " + numberN);
+
+            for (int i = 0; i <= numberN; i++)
+            {
+                lastNumber = lastNumber * initialNumber;
+                Console.WriteLine(lastNumber);
+
+                if (lastNumber > numberN)
+                {
+                    Console.WriteLine("2 в " + i + " степени искомое число");
+                    Console.WriteLine(lastNumber + " >" + " числа N = " + numberN);
+                    break;
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
