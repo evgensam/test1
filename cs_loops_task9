@@ -11,27 +11,23 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             int initialNumber = 100;
-            int lastNumber = 1000;
-            int test;
-            bool isNutural = true;
-          
-            for (int i = initialNumber; i <= lastNumber; i++)
+            int lastNumber = 999;
+            int numberCounter = 0;
+            Random random = new Random();
+            int number = random.Next(1, 27);
+            Console.WriteLine("Число N = " + number);
+
+            for (int i = 0; i <= lastNumber; i+= number)
             {
-                Random rand = new Random();
-                int number = rand.Next(1, 27);
-                test = i / number;
-                Console.WriteLine(number);
-                Console.WriteLine(test);
-                if (isNutural == true)
+
+                if (i>= initialNumber)
                 {
                     Console.WriteLine(i);
-                    break;
-                }
-                else
-                {
-                    continue;
+                    numberCounter++;
+                    Console.WriteLine(numberCounter);
                 }
             }
+            Console.WriteLine("Количесвто натуральных трех значных чисел для числа " + number + " равно " + numberCounter);
             Console.ReadLine();
             }
         }
