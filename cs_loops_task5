@@ -47,7 +47,7 @@ namespace CSLight
                 Console.WriteLine(choiceUsd + " - доллары");
                 Console.WriteLine(choiceEur + " - евро");
                 Console.WriteLine(choiceExit + " - выход");
-                outputExchangeRate = Convert.ToSingle((Console.ReadLine()));
+                outputExchangeRate = Convert.ToInt32((Console.ReadLine()));
 
                 switch (outputExchangeRate)
                 {
@@ -56,7 +56,10 @@ namespace CSLight
                     case ChoiceMenuEur:
                         Console.WriteLine("Выбор выполнен успешно");
                         break;
-
+                    case ChoiceMenuExit:
+                        Console.WriteLine("Для осуществления выхода из программы нажмите любую кнопку");
+                        isFirstExit = false;
+                        break;
                     default:
                         Console.WriteLine("Выбрано некоррекное значение, укажите правильнгый пункт меню");
                         continue;
@@ -69,7 +72,7 @@ namespace CSLight
                     Console.WriteLine(choiceUsd + " - доллары");
                     Console.WriteLine(choiceEur + " - евро");
                     Console.WriteLine(choiceExit + " - выход в предыдущее меню");
-                    inputExchangeRate = Convert.ToSingle((Console.ReadLine()));
+                    inputExchangeRate = Convert.ToInt32((Console.ReadLine()));
 
                     switch (inputExchangeRate)
                     {
