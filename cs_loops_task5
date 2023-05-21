@@ -11,21 +11,26 @@ namespace CSLight
     {
         static void Main(string[] args)
         {
+            const int ChoiceMenuRub = 1;
+            const int ChoiceMenuUsd = 2;
+            const int ChoiceMenuEur = 3;
+            const int ChoiceMenuExit = 4;
+
+
+            int choiceRub = 1;
+            int choiceUsd = 2;
+            int choiceEur = 3;
+            int choiceExit = 4;
             float numberOfRub = 150000;
             float numberOfUsd = 8500;
             float numberOfEur = 9000;
-
-            const int choiceRub = 1;
-            const int choiceUsd = 2;
-            const int choiceEur = 3;
-            const int choiceExit = 4;
             float convertUsdToRub = 74;
             float convertEurToRub = 79;
             float rubExchangeRate = 1;
             float rubExchangeUsd = rubExchangeRate / convertUsdToRub;
             float rubExchangeEur = rubExchangeRate / convertEurToRub;
             float usdExchangeEur = convertUsdToRub / convertEurToRub;
-            float eurExchangeUSD = convertEurToRub / convertUsdToRub;
+            float eurExchangeUsd = convertEurToRub / convertUsdToRub;
             float outputExchangeRate;
             float inputExchangeRate;
             float inputAmountMoney;
@@ -46,9 +51,9 @@ namespace CSLight
 
                 switch (outputExchangeRate)
                 {
-                    case choiceRub:
-                    case choiceUsd:
-                    case choiceEur:
+                    case ChoiceMenuRub:
+                    case ChoiceMenuUsd:
+                    case ChoiceMenuEur:
                         Console.WriteLine("Выбор выполнен успешно");
                         break;
 
@@ -68,13 +73,13 @@ namespace CSLight
 
                     switch (inputExchangeRate)
                     {
-                        case choiceRub:
-                            if (outputExchangeRate == choiceRub)
+                        case ChoiceMenuRub:
+                            if (outputExchangeRate == ChoiceMenuRub)
                             {
                                 Console.WriteLine("Нельзя менять рубль на рубль");
                                 continue;
                             }
-                            else if (outputExchangeRate == choiceUsd)
+                            else if (outputExchangeRate == ChoiceMenuUsd)
                             {
                                 Console.WriteLine("Выбор выполнен успешно");
                                 Console.WriteLine("Введите количество долларов к обмену");
@@ -94,7 +99,7 @@ namespace CSLight
                                     continue;
                                 }
                             }
-                            else if (outputExchangeRate == choiceEur)
+                            else if (outputExchangeRate == ChoiceMenuEur)
                             {
                                 Console.WriteLine("Выбор выполнен успешно");
                                 Console.WriteLine("Введите количество евро к обмену");
@@ -117,13 +122,13 @@ namespace CSLight
                             }
                             break;
 
-                        case choiceUsd:
-                            if (outputExchangeRate == choiceUsd)
+                        case ChoiceMenuUsd:
+                            if (outputExchangeRate == ChoiceMenuUsd)
                             {
                                 Console.WriteLine("Нельзя менять доллар на доллар");
                                 continue;
                             }
-                            else if (outputExchangeRate == choiceRub)
+                            else if (outputExchangeRate == ChoiceMenuRub)
                             {
                                 Console.WriteLine("Выбор выполнен успешно");
                                 Console.WriteLine("Введите количество рублей к обмену");
@@ -135,7 +140,7 @@ namespace CSLight
                                     Console.WriteLine("Обмен выплолнен успешно, ваш баланс:");
                                     Console.WriteLine("Рубли: " + numberOfRub);
                                     Console.WriteLine("Доллары: " + numberOfUsd);
-                                    Console.WriteLine("Доллары: " + numberOfEur);
+                                    Console.WriteLine("Евро: " + numberOfEur);
                                 }
                                 else
                                 {
@@ -143,7 +148,7 @@ namespace CSLight
                                     continue;
                                 }
                             }
-                            else if (outputExchangeRate == choiceEur)
+                            else if (outputExchangeRate == ChoiceMenuEur)
                             {
                                 Console.WriteLine("Выбор выполнен успешно");
                                 Console.WriteLine("Введите количество денег к обмену");
@@ -151,7 +156,7 @@ namespace CSLight
                                 if (numberOfEur - inputAmountMoney >= 0)
                                 {
                                     numberOfEur -= inputAmountMoney;
-                                    numberOfUsd += inputAmountMoney * eurExchangeUSD;
+                                    numberOfUsd += inputAmountMoney * eurExchangeUsd;
                                     Console.WriteLine("Обмен выплолнен успешно, ваш баланс:");
                                     Console.WriteLine("Рубли: " + numberOfRub);
                                     Console.WriteLine("Доллары: " + numberOfUsd);
@@ -165,13 +170,13 @@ namespace CSLight
                             }
                             break;
 
-                        case choiceEur:
-                            if (outputExchangeRate == choiceEur)
+                        case ChoiceMenuEur:
+                            if (outputExchangeRate == ChoiceMenuEur)
                             {
                                 Console.WriteLine("Нельзя менять евро на евро");
                                 continue;
                             }
-                           else if (outputExchangeRate == choiceRub)
+                           else if (outputExchangeRate == ChoiceMenuRub)
                             {
                                 Console.WriteLine("Выбор выполнен успешно");
                                 Console.WriteLine("Введите количество рублей к обмену на евро");
@@ -191,7 +196,7 @@ namespace CSLight
                                     continue;
                                 }
                             }
-                            else if (outputExchangeRate == choiceUsd)
+                            else if (outputExchangeRate == ChoiceMenuUsd)
                             {
                                 Console.WriteLine("Выбор выполнен успешно");
                                 Console.WriteLine("Введите количество долларов к обмену на евро");
@@ -213,7 +218,7 @@ namespace CSLight
                             }
                             break;
 
-                        case choiceExit:
+                        case ChoiceMenuExit:
                             Console.WriteLine("Для осуществления выхода в предыдушее меню нажмите любую кнопку");
                             isSecondExit = false;
                             continue;
