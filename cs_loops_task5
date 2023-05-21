@@ -65,7 +65,7 @@ namespace CSLight
                         continue;
                 }
                 
-                while (isSecondExit)
+                while (isSecondExit && isFirstExit)
                 {
                     Console.WriteLine("Выбирете валюту на которую хотите обменять:");
                     Console.WriteLine(choiceRub + " - рубли");
