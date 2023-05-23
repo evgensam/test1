@@ -1,0 +1,234 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace gamesmage
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int chosenDungeon;
+            int chosenClass;
+            bool isOpen = true;
+
+
+            int fireMage = 1;
+            int coldMage = 2;
+            int earthMage = 3;
+
+            const int FireMage = 1;
+            const int ColdMage = 2;
+            const int EarthMage = 3;
+            const int Exit = 4;
+
+
+            int fireCreation = 1;
+            int colCreation = 2;
+            int earthCreation = 3;
+
+            int physicalDamageHero;
+            int magicDamageHero;
+            int physicalDefenseHero;
+            int healthHero;
+            int fireDefenseHero;
+            int coldDefenseHero;
+            int airDefenseHero;
+
+            int physicalDamageCreation;
+            int magicDamageCreation;
+            int physicalDefenseCreation;
+            int healthCreation;
+            int fireDefenseCreation;
+            int coldDefenseCreation;
+            int airDefenseCreation;
+
+            Random randomPhysicalDamageHero = new Random();
+            physicalDamageHero = randomPhysicalDamageHero.Next(15, 30);
+            Random randomMagicDamageHero = new Random();
+            magicDamageHero = randomMagicDamageHero.Next(10, 25);
+            Random randomPhysicalDefenseHero = new Random();
+            physicalDefenseHero = randomPhysicalDefenseHero.Next(5, 15);
+            Random randomHealthHero = new Random();
+            healthHero = randomHealthHero.Next(200, 350);
+            Random randomFireDefenseHero = new Random();
+            fireDefenseHero = randomFireDefenseHero.Next(7, 19);
+            Random randomColdDefenseHero = new Random();
+            coldDefenseHero = randomColdDefenseHero.Next(10, 20);
+            Random randomAirDefenseHero = new Random();
+            airDefenseHero = randomAirDefenseHero.Next(15, 22);
+
+            Random randomPhysicalDamageCreation = new Random();
+            physicalDamageCreation = randomPhysicalDamageCreation.Next(15, 30);
+            Random randomMagicDamageCreation = new Random();
+            magicDamageCreation = randomMagicDamageCreation.Next(10, 25);
+            Random randomPhysicalDefenseCreation = new Random();
+            physicalDefenseCreation = randomPhysicalDefenseCreation.Next(5, 15);
+            Random randomHealthCreation = new Random();
+            healthHero = randomHealthCreation.Next(350, 550);
+            Random randomFireDefenseCreation = new Random();
+            fireDefenseCreation = randomFireDefenseCreation.Next(7, 20);
+            Random randomColdDefenseCreation = new Random();
+            coldDefenseCreation = randomColdDefenseCreation.Next(10, 20);
+            Random randomAirDefenseCreation = new Random();
+            airDefenseCreation = randomAirDefenseCreation.Next(15, 22);
+
+
+            Random randomDungeon = new Random();
+
+            string[,] dungeon = {
+            {"|Огненое подземелье|", "|Ледяное подземелье|","|Воздушное подземелье|" },
+            {"|Огненный голем    |", "|Ледяной голем     |","|Воздушный голем     |" },
+            {"|Ледяной шар       |", "|Огеный шар        |","|Земляной шар        |" },
+            {"|Ледяной щит       |", "|Огненый щит       |","|Земляной щит        |"}
+            };
+
+            int[,] heros =
+            {
+
+                {physicalDamageHero,physicalDamageHero,physicalDamageHero},
+                {magicDamageHero,magicDamageHero,magicDamageHero},
+                {physicalDefenseHero,physicalDefenseHero,physicalDefenseHero},
+                {healthHero,healthHero,healthHero},
+                {fireDefenseHero,fireDefenseHero,fireDefenseHero},
+                {coldDefenseHero,coldDefenseHero,coldDefenseHero},
+                {airDefenseHero,airDefenseHero,airDefenseHero }
+
+            };
+
+            int[,] choiceHeros =
+            {
+                {0 },
+                {0 },
+                {0 },
+                {0},
+                {0 },
+                {0},
+                {0 },
+            };
+
+
+            string[,] herosName =
+{
+
+                {"Физический урон1","Физический урон2","Физический урон"},
+                {"Магический урон","Магический урон","Магический урон"},
+                {"Физическая защита","Физическая защита","Физическая защита"},
+                {"Здоровье","Здоровье","Здоровье"},
+                {"Защита от огня","Защита от огня","Защита от огня"},
+                {"Защита от холода","Защита от холода","Защита от холода"},
+                {"Защита от воздуха","Защита от воздуха","Защита от воздуха"}
+            };
+
+            int[] choseHerosName;
+
+            string[,] creationName =
+{
+
+                {"Физический урон","Физический урон","Физический урон"},
+                {"Магический урон","Магический урон","Магический урон"},
+                {"Физическая защита","Физическая защита","Физическая защита"},
+                {"Здоровье","Здоровье","Здоровье"},
+                {"Защита от огня","Защита от огня","Защита от огня"},
+                {"Защита от холода","Защита от холода","Защита от холода"},
+                {"Защита от воздуха","Защита от воздуха","Защита от воздуха"}
+            };
+
+            while (isOpen)
+            {
+                Console.WriteLine("Выберите класс мага:\n" + fireMage + "- маг огня \n" + coldMage + "- маг холода " +
+                    $"\n" + earthMage + "- маг земли \n" + Exit + "- выход");
+                chosenClass = Convert.ToInt32(Console.ReadLine());
+
+
+                switch (chosenClass)
+                {
+
+                    case FireMage:
+                        //                     Console.SetCursorPosition(0,10);
+                        for (int i = 0; i < heros.GetLength(0); i++)
+                        {
+                            for (int j = chosenClass-1; j == chosenClass - 1;j++)
+
+                            {
+                                
+                                Console.Write(heros[i, j]);
+                                Console.WriteLine();
+                                choiceHeros = heros;
+                                choiceHeros[i, j] = heros[i, j];
+                                Console.WriteLine(choiceHeros);
+                            }
+                        }
+                        break;
+                    case ColdMage:
+                        for (int i = 0; i < heros.GetLength(0); i++)
+                        {
+                            Console.Write(herosName[i, chosenClass - 1]);
+                            Console.Write(" " + heros[i, chosenClass - 1]);
+                            Console.WriteLine();
+
+                        }
+                        break;
+                    case EarthMage:
+                        for (int i = 0; i < heros.GetLength(0); i++)
+                        {
+                            Console.Write(herosName[i, chosenClass - 1]);
+                            Console.Write(" " + heros[i, chosenClass - 1]);
+                            Console.WriteLine();
+
+                        }
+                        break;
+                    case Exit:
+                        isOpen = false;
+                        break;
+                    default:
+                        Console.WriteLine("Выбрано некоррекное значение, укажите правильнгый пункт меню");
+                        continue;
+                }
+                break;
+            }
+            Console.WriteLine("Вы боевой маг и вас главный магистр отправил очистить подземелье от чудовищ, вы идете в портал " +
+              " который случаным образом перенесет вас в одно из подземелье" + "\n" +
+              "Ниже отображается возмоджные подземелья");
+            
+            while (isOpen)
+            {
+              
+
+                for (int i = 0; i < dungeon.GetLength(0);)
+                {
+                    for (int j = 0; j < dungeon.GetLength(1); j++)
+                    {
+                        Console.Write(dungeon[i, j]);
+                    }
+                    break;
+                }
+                Console.WriteLine();
+                Console.WriteLine("Нажмитие любую кнопку для спуска в подземелье");
+                Console.ReadLine();
+
+                chosenDungeon = randomDungeon.Next(dungeon.GetLength(1));
+                Console.WriteLine("Вы спустились в " + dungeon[0, chosenDungeon]);
+                Console.ReadLine();
+                Console.WriteLine("К вам вышел" + dungeon[1, chosenDungeon]);
+                Console.ReadKey();
+                Console.SetCursorPosition(20,0);
+
+
+                Console.WriteLine("Ваши заклинания:");
+
+            }
+
+
+
+        }
+            
+
+       
+    }
+}
