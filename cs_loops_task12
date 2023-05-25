@@ -64,19 +64,19 @@ namespace gamesmage
             airDefenseHero = randomAirDefenseHero.Next(15, 22);
 
             Random randomPhysicalDamageCreation = new Random();
-            physicalDamageCreation = randomPhysicalDamageCreation.Next(15, 30);
+            physicalDamageCreation = randomPhysicalDamageCreation.Next(10, 25);
             Random randomMagicDamageCreation = new Random();
-            magicDamageCreation = randomMagicDamageCreation.Next(10, 25);
+            magicDamageCreation = randomMagicDamageCreation.Next(11, 27);
             Random randomPhysicalDefenseCreation = new Random();
-            physicalDefenseCreation = randomPhysicalDefenseCreation.Next(5, 15);
+            physicalDefenseCreation = randomPhysicalDefenseCreation.Next(6, 17);
             Random randomHealthCreation = new Random();
-            healthHero = randomHealthCreation.Next(350, 550);
+            healthHero = randomHealthCreation.Next(360, 600);
             Random randomFireDefenseCreation = new Random();
-            fireDefenseCreation = randomFireDefenseCreation.Next(7, 20);
+            fireDefenseCreation = randomFireDefenseCreation.Next(5, 35);
             Random randomColdDefenseCreation = new Random();
-            coldDefenseCreation = randomColdDefenseCreation.Next(10, 20);
+            coldDefenseCreation = randomColdDefenseCreation.Next(7, 22);
             Random randomAirDefenseCreation = new Random();
-            airDefenseCreation = randomAirDefenseCreation.Next(15, 22);
+            airDefenseCreation = randomAirDefenseCreation.Next(16, 35);
 
 
             Random randomDungeon = new Random();
@@ -101,17 +101,40 @@ namespace gamesmage
 
             };
 
+            int[,] creation =
+{
+
+                {physicalDamageHero,physicalDamageHero,physicalDamageHero},
+                {magicDamageHero,magicDamageHero,magicDamageHero},
+                {physicalDefenseHero,physicalDefenseHero,physicalDefenseHero},
+                {healthHero,healthHero,healthHero},
+                {fireDefenseHero,fireDefenseHero,fireDefenseHero},
+                {coldDefenseHero,coldDefenseHero,coldDefenseHero},
+                {airDefenseHero,airDefenseHero,airDefenseHero }
+
+            };
+
             int[,] choiceHeros =
             {
                 {0 },
                 {0 },
                 {0 },
-                {0},
                 {0 },
-                {0},
+                {0 },
+                {0 },
                 {0 },
             };
 
+            int[,] choiceCreation =
+{
+                {0 },
+                {0 },
+                {0 },
+                {0 },
+                {0 },
+                {0 },
+                {0 },
+            };
 
             string[,] herosName =
 {
@@ -125,12 +148,22 @@ namespace gamesmage
                 {"Защита от воздуха","Защита от воздуха","Защита от воздуха"}
             };
 
-            int[] choseHerosName;
+            string[,] choseHerosName =
+{
+
+                {"Нет данных" },
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"}
+            };
 
             string[,] creationName =
 {
 
-                {"Физический урон","Физический урон","Физический урон"},
+                {"Физический урон1","Физический урон2","Физический урон"},
                 {"Магический урон","Магический урон","Магический урон"},
                 {"Физическая защита","Физическая защита","Физическая защита"},
                 {"Здоровье","Здоровье","Здоровье"},
@@ -138,6 +171,20 @@ namespace gamesmage
                 {"Защита от холода","Защита от холода","Защита от холода"},
                 {"Защита от воздуха","Защита от воздуха","Защита от воздуха"}
             };
+
+            string[,] choseCreationName =
+{
+
+                {"Нет данных" },
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"},
+                {"Нет данных"}
+            };
+
+            
 
             while (isOpen)
             {
@@ -153,34 +200,50 @@ namespace gamesmage
                         //                     Console.SetCursorPosition(0,10);
                         for (int i = 0; i < heros.GetLength(0); i++)
                         {
-                            for (int j = chosenClass-1; j == chosenClass - 1;j++)
+                            for (int j = chosenClass - 1; j == chosenClass - 1; j++)
 
                             {
-                                
-                                Console.Write(heros[i, j]);
-                                Console.WriteLine();
-                                choiceHeros = heros;
+
                                 choiceHeros[i, j] = heros[i, j];
-                                Console.WriteLine(choiceHeros);
+                                choseHerosName[i, j] = herosName[i, j];
+                                Console.Write(choseHerosName[i, j] + " ");
+                                Console.Write(choiceHeros[i, j]);
+                                Console.WriteLine();
+
                             }
                         }
                         break;
                     case ColdMage:
                         for (int i = 0; i < heros.GetLength(0); i++)
                         {
-                            Console.Write(herosName[i, chosenClass - 1]);
-                            Console.Write(" " + heros[i, chosenClass - 1]);
-                            Console.WriteLine();
+                            for (int j = chosenClass - 1; j == chosenClass - 1; j++)
 
+                            {
+
+                                choiceHeros[i, j] = heros[i, j];
+                                choseHerosName[i, j] = herosName[i, j];
+                                Console.Write(choseHerosName[i, j] + " ");
+                                Console.Write(choiceHeros[i, j]);
+                                Console.WriteLine();
+
+                            }
                         }
                         break;
                     case EarthMage:
                         for (int i = 0; i < heros.GetLength(0); i++)
                         {
-                            Console.Write(herosName[i, chosenClass - 1]);
-                            Console.Write(" " + heros[i, chosenClass - 1]);
-                            Console.WriteLine();
+                            for (int j = chosenClass - 1; j == chosenClass - 1; j++)
 
+                            {
+
+                                choiceHeros[i, j] = heros[i, j];
+                                choseHerosName[i, j] = herosName[i, j];
+                                Console.Write(choseHerosName[i, j] + " ");
+                                Console.Write(choiceHeros[i, j]);
+                                Console.WriteLine();
+
+                            }
+                            
                         }
                         break;
                     case Exit:
@@ -195,40 +258,68 @@ namespace gamesmage
             Console.WriteLine("Вы боевой маг и вас главный магистр отправил очистить подземелье от чудовищ, вы идете в портал " +
               " который случаным образом перенесет вас в одно из подземелье" + "\n" +
               "Ниже отображается возмоджные подземелья");
-            
+
+
+
+
+            for (int i = 0; i < dungeon.GetLength(0);)
+            {
+                for (int j = 0; j < dungeon.GetLength(1); j++)
+                {
+                    Console.Write(dungeon[i, j]);
+                }
+                break;
+            }
+            Console.WriteLine();
+            Console.WriteLine("Нажмитие любую кнопку для спуска в подземелье");
+            Console.ReadLine();
+
+            chosenDungeon = randomDungeon.Next(0,dungeon.GetLength(1));
+            Console.WriteLine("Вы спустились в " + dungeon[0, chosenDungeon]);
+            Console.ReadLine();
+            Console.WriteLine("К вам вышел" + dungeon[1, chosenDungeon]);
+            Console.ReadKey();
+
+            Console.WriteLine("Начался бой");
+
             while (isOpen)
             {
-              
 
-                for (int i = 0; i < dungeon.GetLength(0);)
+                for (int i = 0; i < creation.GetLength(0); i++)
                 {
-                    for (int j = 0; j < dungeon.GetLength(1); j++)
+                    for (int j = chosenDungeon; j == chosenDungeon; j++)
+
                     {
-                        Console.Write(dungeon[i, j]);
+
+                        choiceCreation[i, j] = creation[i, j];
+                        Console.Write(choiceCreation[i, j]);
+                        Console.WriteLine();
+
                     }
-                    break;
                 }
-                Console.WriteLine();
-                Console.WriteLine("Нажмитие любую кнопку для спуска в подземелье");
-                Console.ReadLine();
 
-                chosenDungeon = randomDungeon.Next(dungeon.GetLength(1));
-                Console.WriteLine("Вы спустились в " + dungeon[0, chosenDungeon]);
-                Console.ReadLine();
-                Console.WriteLine("К вам вышел" + dungeon[1, chosenDungeon]);
+
+
+                for (int i = 0; i < choiceHeros.GetLength(0); i++)
+                {
+                    for (int j = 0; j < choiceHeros.GetLength(1); j++)
+
+                    {
+                        Console.Write(choseHerosName[i, j] + " ");
+                        Console.Write(choiceHeros[i, j]);
+                        Console.WriteLine();
+
+                    }
+
+
+
+                }
                 Console.ReadKey();
-                Console.SetCursorPosition(20,0);
 
-
-                Console.WriteLine("Ваши заклинания:");
 
             }
 
 
-
         }
-            
-
-       
     }
 }
