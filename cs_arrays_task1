@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace gamesmage
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int[,] array =
+            {
+                {1,2,3 },
+                {4,5,6,},
+                {7,8,9,}
+            };
+
+            int lineNumber = 0;
+            int columNumber = 1;
+            int lineSum = 0;
+            int columnMultiplication = 1;
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    Console.Write(array[i, j]);
+                }
+                Console.WriteLine();
+            }
+
+            for (int i = 0; i < array.GetLength(1); i++)
+            {
+                lineSum += array[lineNumber, i];
+            }
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                columnMultiplication *= array[i, columNumber];
+            }
+            Console.WriteLine("Сумма первой строки " + lineSum);
+            Console.WriteLine("Произведение второго столбца " + columnMultiplication);
+            Console.ReadKey();
+
+        }
+    }
+}
