@@ -13,312 +13,165 @@ namespace gamesmage
         static void Main(string[] args)
         {
 
-            int chosenDungeon;
-            int chosenClass;
-            bool isOpen = true;
+            string physicalDamageHeroDescription = "5-15";
+            string fireDamageHeroDescription = "30-65";
+            string coldDamageHeroDescription = "8-25";
+            string airDamageHeroDescription = "1-17";
 
-
-            int fireMage = 1;
-            int coldMage = 2;
-            int earthMage = 3;
-
-            const int FireMage = 1;
-            const int ColdMage = 2;
-            const int EarthMage = 3;
-            const int Exit = 4;
-
-
-            int fireCreation = 1;
-            int colCreation = 2;
-            int earthCreation = 3;
-
-            int physicalDamageHero;
-            int magicDamageHero;
-            int physicalDefenseHero;
-            int healthHero;
-            int fireDefenseHero;
-            int coldDefenseHero;
-            int airDefenseHero;
-
-            int physicalDamageCreation;
-            int magicDamageCreation;
-            int physicalDefenseCreation;
-            int healthCreation;
-            int fireDefenseCreation;
-            int coldDefenseCreation;
-            int airDefenseCreation;
+            const int ChoicePhysicalDamageHero = 1;
+            const int ChoiceFireDamageHero = 2;
+            const int ChoiceAirDamageHero = 3;
+            const int ChoiceColdDamageHero = 4;
+            int choiceSpell;
 
             Random randomPhysicalDamageHero = new Random();
-            physicalDamageHero = randomPhysicalDamageHero.Next(15, 30);
-            Random randomMagicDamageHero = new Random();
-            magicDamageHero = randomMagicDamageHero.Next(10, 25);
-            Random randomPhysicalDefenseHero = new Random();
-            physicalDefenseHero = randomPhysicalDefenseHero.Next(5, 15);
-            Random randomHealthHero = new Random();
-            healthHero = randomHealthHero.Next(200, 350);
-            Random randomFireDefenseHero = new Random();
-            fireDefenseHero = randomFireDefenseHero.Next(7, 19);
-            Random randomColdDefenseHero = new Random();
-            coldDefenseHero = randomColdDefenseHero.Next(10, 20);
-            Random randomAirDefenseHero = new Random();
-            airDefenseHero = randomAirDefenseHero.Next(15, 22);
+            Random randomFireDamageHero = new Random();
+            Random randomAirDamageHero = new Random();
+            Random randomColdDamageHero = new Random();
+
+            float physicalDamageHero;
+            float fireDamageHero;
+            float coldDamageHero;
+            float airDamageHero;
+
+            string physicalDamageCreationDescription = "4-12";
+            string fireDamageCreationDescription = "3-13";
+            string coldDamageCreationDescription = "5-10";
+            string airDamageCreationDescription = "2-8";
 
             Random randomPhysicalDamageCreation = new Random();
-            physicalDamageCreation = randomPhysicalDamageCreation.Next(10, 25);
-            Random randomMagicDamageCreation = new Random();
-            magicDamageCreation = randomMagicDamageCreation.Next(11, 27);
-            Random randomPhysicalDefenseCreation = new Random();
-            physicalDefenseCreation = randomPhysicalDefenseCreation.Next(6, 17);
-            Random randomHealthCreation = new Random();
-            healthHero = randomHealthCreation.Next(360, 600);
-            Random randomFireDefenseCreation = new Random();
-            fireDefenseCreation = randomFireDefenseCreation.Next(5, 35);
-            Random randomColdDefenseCreation = new Random();
-            coldDefenseCreation = randomColdDefenseCreation.Next(7, 22);
-            Random randomAirDefenseCreation = new Random();
-            airDefenseCreation = randomAirDefenseCreation.Next(16, 35);
+            Random randomFireDamageCreation = new Random();
+            Random randomColdDamageCreation = new Random();
+            Random randomAirDamageCreation = new Random();
+
+            float physicalDamageCreation;
+            float fireDamageCreation;
+            float coldDamageCreation;
+            float airDamageCreation;
+
+            float physicalDefenseHero = 30;
+            float healthHero = 90;
+            float fireDefenseHero = 25;
+            float coldDefenseHero = 15;
+            float airDefenseHero = 20;
+
+            float physicalDefenseCreation = 15;
+            float healthCreation = 150;
+            float fireDefenseCreation = 2;
+            float coldDefenseCreation = 25;
+            float airDefenseCreation = 15;
 
 
-            Random randomDungeon = new Random();
+            Console.WriteLine("Вы спускаетесь в подземелье и видите как нас бежит враг, перед спуском " +
+                "старейшена дал вам подсказку что при атаке врага, враг применяет аналогичное заклинание");
+            Console.WriteLine("Приготовтесь враг вышел, для продолжения нажмите любуюкномку");
+            Console.ReadKey();
+            Console.Clear();
 
-            string[,] dungeon = {
-            {"|Огненое подземелье|", "|Ледяное подземелье|","|Воздушное подземелье|" },
-            {"|Огненный голем    |", "|Ледяной голем     |","|Воздушный голем     |" },
-            {"|Ледяной шар       |", "|Огеный шар        |","|Земляной шар        |" },
-            {"|Ледяной щит       |", "|Огненый щит       |","|Земляной щит        |"}
-            };
-
-            int[,] heros =
+            while (healthHero >0 && healthCreation >0)
             {
 
-                {physicalDamageHero,physicalDamageHero,physicalDamageHero},
-                {magicDamageHero,magicDamageHero,magicDamageHero},
-                {physicalDefenseHero,physicalDefenseHero,physicalDefenseHero},
-                {healthHero,healthHero,healthHero},
-                {fireDefenseHero,fireDefenseHero,fireDefenseHero},
-                {coldDefenseHero,coldDefenseHero,coldDefenseHero},
-                {airDefenseHero,airDefenseHero,airDefenseHero }
 
-            };
+                Console.WriteLine("Характеристики героя:\n" + "Защита: " + physicalDefenseHero + "\n" + "Здоровье: " + healthHero + "\n" +
+                     "Огненная защита: " + fireDefenseHero + "\n" + "Защита от холода: " + coldDefenseHero + "\n" + "Защита от воздуха: " + airDefenseHero);
 
-            int[,] creation =
-{
+                Console.SetCursorPosition(26, 0);
+                Console.WriteLine("Характеристики врага:");
+                Console.SetCursorPosition(26,1);
+                Console.WriteLine("Защита: " + physicalDefenseCreation);
+                Console.SetCursorPosition(26,2);
+                Console.WriteLine("Здоровье: " + healthCreation);
+                Console.SetCursorPosition(26,3);
+                Console.WriteLine("Огненная защита: " + fireDefenseCreation);
+                Console.SetCursorPosition(26,4);
+                Console.WriteLine("Защита от холода: " + coldDefenseCreation);
+                Console.SetCursorPosition(26,5);
+                Console.WriteLine("Защита от воздуха: " + airDefenseCreation);
 
-                {physicalDamageHero,physicalDamageHero,physicalDamageHero},
-                {magicDamageHero,magicDamageHero,magicDamageHero},
-                {physicalDefenseHero,physicalDefenseHero,physicalDefenseHero},
-                {healthHero,healthHero,healthHero},
-                {fireDefenseHero,fireDefenseHero,fireDefenseHero},
-                {coldDefenseHero,coldDefenseHero,coldDefenseHero},
-                {airDefenseHero,airDefenseHero,airDefenseHero }
+                Console.WriteLine();
+                Console.WriteLine("Выбирете заклинание :");
 
-            };
+                Console.WriteLine($"{ChoicePhysicalDamageHero} Визический урон ({physicalDamageHeroDescription})");
+                Console.WriteLine($"{ChoiceFireDamageHero} Огненый урон ({fireDamageHeroDescription})");
+                Console.WriteLine($"{ChoiceAirDamageHero} Воздушный урон ({airDamageHeroDescription})");
+                Console.WriteLine($"{ChoiceColdDamageHero} Ледяной урон ({coldDamageHeroDescription})");
 
-            int[,] choiceHeros =
-            {
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-            };
+                choiceSpell = Convert.ToInt32(Console.ReadLine());
 
-            int[,] choiceCreation =
-{
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-                {0 },
-            };
-
-            string[,] herosName =
-{
-
-                {"Физический урон1","Физический урон2","Физический урон"},
-                {"Магический урон","Магический урон","Магический урон"},
-                {"Физическая защита","Физическая защита","Физическая защита"},
-                {"Здоровье","Здоровье","Здоровье"},
-                {"Защита от огня","Защита от огня","Защита от огня"},
-                {"Защита от холода","Защита от холода","Защита от холода"},
-                {"Защита от воздуха","Защита от воздуха","Защита от воздуха"}
-            };
-
-            string[,] choseHerosName =
-{
-
-                {"Нет данных" },
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"}
-            };
-
-            string[,] creationName =
-{
-
-                {"Физический урон1","Физический урон2","Физический урон"},
-                {"Магический урон","Магический урон","Магический урон"},
-                {"Физическая защита","Физическая защита","Физическая защита"},
-                {"Здоровье","Здоровье","Здоровье"},
-                {"Защита от огня","Защита от огня","Защита от огня"},
-                {"Защита от холода","Защита от холода","Защита от холода"},
-                {"Защита от воздуха","Защита от воздуха","Защита от воздуха"}
-            };
-
-            string[,] choseCreationName =
-{
-
-                {"Нет данных" },
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"},
-                {"Нет данных"}
-            };
-
-            
-
-            while (isOpen)
-            {
-                Console.WriteLine("Выберите класс мага:\n" + fireMage + "- маг огня \n" + coldMage + "- маг холода " +
-                    $"\n" + earthMage + "- маг земли \n" + Exit + "- выход");
-                chosenClass = Convert.ToInt32(Console.ReadLine());
-
-
-                switch (chosenClass)
+                switch (choiceSpell)
                 {
-
-                    case FireMage:
-                        //                     Console.SetCursorPosition(0,10);
-                        for (int i = 0; i < heros.GetLength(0); i++)
-                        {
-                            for (int j = chosenClass - 1; j == chosenClass - 1; j++)
-
-                            {
-
-                                choiceHeros[i, j] = heros[i, j];
-                                choseHerosName[i, j] = herosName[i, j];
-                                Console.Write(choseHerosName[i, j] + " ");
-                                Console.Write(choiceHeros[i, j]);
-                                Console.WriteLine();
-
-                            }
-                        }
+                    case ChoicePhysicalDamageHero:
+                        physicalDamageHero = randomPhysicalDamageHero.Next(5, 15);
+                        Console.WriteLine($"Вы наноситие {physicalDamageHero} урона врагу");
+                        healthCreation -= physicalDamageHero -((physicalDamageHero/100) * physicalDefenseCreation);
+                        Console.WriteLine($"У врага осталось {healthCreation} здоровья");
+                        physicalDamageCreation = randomPhysicalDamageCreation.Next(4, 12);
+                        Console.WriteLine($"Враг в ответ наносит {physicalDamageCreation} урона вам");
+                        healthHero -= physicalDamageCreation - ((physicalDamageCreation / 100) * physicalDefenseHero);
+                        Console.WriteLine($"У вас осталось {healthHero} здоровья");                       
                         break;
-                    case ColdMage:
-                        for (int i = 0; i < heros.GetLength(0); i++)
-                        {
-                            for (int j = chosenClass - 1; j == chosenClass - 1; j++)
-
-                            {
-
-                                choiceHeros[i, j] = heros[i, j];
-                                choseHerosName[i, j] = herosName[i, j];
-                                Console.Write(choseHerosName[i, j] + " ");
-                                Console.Write(choiceHeros[i, j]);
-                                Console.WriteLine();
-
-                            }
-                        }
+                   
+                    case ChoiceFireDamageHero:
+                        fireDamageHero = randomFireDamageHero.Next(30, 65);
+                        Console.WriteLine($"Вы наноситие {fireDamageHero} урона врагу");
+                        healthCreation -= fireDamageHero - ((fireDamageHero / 100) * fireDefenseCreation);
+                        Console.WriteLine($"У врага осталось {healthCreation} здоровья");
+                        fireDamageCreation = randomFireDamageCreation.Next(3, 13);
+                        Console.WriteLine($"Враг в ответ наносит {fireDamageCreation} урона вам");
+                        healthHero -= fireDamageCreation - ((fireDamageCreation / 100) * fireDefenseHero);
+                        Console.WriteLine($"У вас осталось {healthHero} здоровья");                       
                         break;
-                    case EarthMage:
-                        for (int i = 0; i < heros.GetLength(0); i++)
-                        {
-                            for (int j = chosenClass - 1; j == chosenClass - 1; j++)
 
-                            {
-
-                                choiceHeros[i, j] = heros[i, j];
-                                choseHerosName[i, j] = herosName[i, j];
-                                Console.Write(choseHerosName[i, j] + " ");
-                                Console.Write(choiceHeros[i, j]);
-                                Console.WriteLine();
-
-                            }
-                            
-                        }
+                    case ChoiceAirDamageHero:
+                        airDamageHero = randomAirDamageHero.Next(1, 7);
+                        Console.WriteLine($"Вы наноситие {airDamageHero} урона врагу");
+                        healthCreation -= airDamageHero - ((airDamageHero / 100) * airDefenseCreation);
+                        Console.WriteLine($"У врага осталось {healthCreation} здоровья");
+                        airDamageCreation = randomAirDamageCreation.Next(2, 8);
+                        Console.WriteLine($"Враг в ответ наносит {airDamageCreation} урона вам");
+                        healthHero -= airDamageCreation - ((airDamageCreation / 100) * airDefenseHero);
+                        Console.WriteLine($"У вас осталось {healthHero} здоровья");
                         break;
-                    case Exit:
-                        isOpen = false;
+
+                    case ChoiceColdDamageHero:
+                        coldDamageHero = randomColdDamageHero.Next(8, 25);
+                        Console.WriteLine($"Вы наноситие {coldDamageHero} урона врагу");
+                        healthCreation -= coldDamageHero - ((coldDamageHero / 100) * coldDefenseCreation);
+                        Console.WriteLine($"У врага осталось {healthCreation} здоровья");
+                        coldDamageCreation = randomColdDamageCreation.Next(5, 10);
+                        Console.WriteLine($"Враг в ответ наносит {coldDamageCreation} урона вам");
+                        healthHero -= coldDamageCreation - ((coldDamageCreation / 100) * coldDefenseHero);
+                        Console.WriteLine($"У вас осталось {healthHero} здоровья");
                         break;
-                    default:
-                        Console.WriteLine("Выбрано некоррекное значение, укажите правильнгый пункт меню");
-                        continue;
-                }
-                break;
+
+                        default:
+                        Console.WriteLine("Ввели некорректное значение");
+                        break;
+
+                };
+
+                Console.ReadKey();
+                Console.Clear();
             }
-            Console.WriteLine("Вы боевой маг и вас главный магистр отправил очистить подземелье от чудовищ, вы идете в портал " +
-              " который случаным образом перенесет вас в одно из подземелье" + "\n" +
-              "Ниже отображается возмоджные подземелья");
 
-
-
-
-            for (int i = 0; i < dungeon.GetLength(0);)
+            if (healthHero <= 0 && healthCreation <= 0)
             {
-                for (int j = 0; j < dungeon.GetLength(1); j++)
-                {
-                    Console.Write(dungeon[i, j]);
-                }
-                break;
+                Console.WriteLine("Ничья");
             }
-            Console.WriteLine();
-            Console.WriteLine("Нажмитие любую кнопку для спуска в подземелье");
-            Console.ReadLine();
 
-            chosenDungeon = randomDungeon.Next(0,dungeon.GetLength(1));
-            Console.WriteLine("Вы спустились в " + dungeon[0, chosenDungeon]);
-            Console.ReadLine();
-            Console.WriteLine("К вам вышел" + dungeon[1, chosenDungeon]);
+            else if (healthHero <= 0 || healthCreation > 0)
+            {
+                Console.WriteLine("Победил врг");
+            }
+
+            else if (healthHero > 0 || healthCreation <= 0)
+            {
+                Console.WriteLine("Победил герой");
+            }
+
             Console.ReadKey();
 
-            Console.WriteLine("Начался бой");
-
-            while (isOpen)
-            {
-
-                for (int i = 0; i < creation.GetLength(0); i++)
-                {
-                    for (int j = chosenDungeon; j == chosenDungeon; j++)
-
-                    {
-
-                        choiceCreation[i, j] = creation[i, j];
-                        Console.Write(choiceCreation[i, j]);
-                        Console.WriteLine();
-
-                    }
-                }
-
-
-                for (int i = 0; i < choiceHeros.GetLength(0); i++)
-                {
-                    for (int j = 0; j < choiceHeros.GetLength(1); j++)
-
-                    {
-                        Console.Write(choseHerosName[i, j] + " ");
-                        Console.Write(choiceHeros[i, j]);
-                        Console.WriteLine();
-
-                    }
-
-
-
-                }
-                Console.ReadKey();
-
-
-            }
-
-
         }
+
     }
 }
