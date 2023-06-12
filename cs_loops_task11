@@ -15,48 +15,39 @@ namespace CSLight
         {
             string enterSimbol;
             int lengtSimbol;
-            int countSimbolA =0;
-            int countSimbolB = 0;
+            char countSimbolA = '(';
+            char countSimbolB = ')';
+            int currentDepth = 0;
             int count = 0;
 
             Console.WriteLine("Введите символ открытия ( и символ закрытия ) в произвольном порядке, но каждый символ открытия" +
                 " должен обязательно быть закрыт");
             enterSimbol = Console.ReadLine();
             lengtSimbol = enterSimbol.Length;
-            Console.Write(lengtSimbol);
-
-
-            for (int i = 0; i < lengtSimbol; i++)
-            {
-                if (enterSimbol[i] == '(')
-                {
-                    countSimbolA++;
-                }
-                else if (enterSimbol[i] == ')')
-                {
-                    countSimbolB++;
-                }
-
-            }
+            Console.WriteLine("Длина строки " + lengtSimbol);
 
             for (int i = 0; i < lengtSimbol; i++)
             {
-              if (i != lengtSimbol-1 && enterSimbol[i + 1] != ')')
-              count++;
-              Console.WriteLine(count);
-
+                if (enterSimbol[i] == countSimbolA)
+                {
+                    currentDepth++;
+                    count++;
+                }
+                else if (enterSimbol[i] == countSimbolB)
+                {
+                    currentDepth--;
+                }
             }
 
-            if (countSimbolA == countSimbolB && countSimbolA !=0 && countSimbolB !=0)
-                {
-                Console.WriteLine("Все ок и глубина равна " + count);
-                }
+            if (currentDepth < 0)
+            {
+                Console.WriteLine("Введено некорректное значение");
+            }
             else
             {
-                Console.WriteLine("Вы ввели некорректные символы");
+                Console.WriteLine("Все ок и глубина равна " + count);
             }
-           
             Console.ReadKey();
         }
-    }
+        }
 }
