@@ -35,26 +35,34 @@ namespace CSLight
                 {
                     currentDepth++;
                     count++;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(countSimbolA);
+
                 }
                 else if (enterSimbol[i] == countSimbolB)
                 {
                     currentDepth--;
                 }
-            }
-
-            for (int i = 1; i < lengtSimbol; i++)
-            {
-                if (enterSimbol[i] == countSimbolB && enterSimbol[i + 1] == countSimbolA)
+                else if (count <0 )
                 {
-                    Console.WriteLine("Выражение некорректно");
-                    wrong++;
-                    Console.WriteLine(enterSimbol);
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(countSimbolB + countSimbolA);
-                    Console.ResetColor();
-                    break;
+                    Console.WriteLine(enterSimbol[i]);
                 }
             }
+
+            //for (int i = 1; i < lengtSimbol; i++)
+            //{
+            //    if (enterSimbol[i] == countSimbolB && enterSimbol[i + 1] == countSimbolA)
+            //    {
+            //        Console.WriteLine("Выражение некорректно");
+            //        wrong++;
+            //        Console.WriteLine(enterSimbol);
+            //        Console.ForegroundColor = ConsoleColor.Green;
+            //        Console.Write(countSimbolB + countSimbolA);
+            //        Console.ResetColor();
+            //        break;
+            //    }
+            //}
 
             if (currentDepth < 0)
             {
