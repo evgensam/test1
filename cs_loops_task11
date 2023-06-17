@@ -19,6 +19,8 @@ namespace CSLight
             char countSimbolB = ')';
             int currentDepth = 0;
             int count = 0;
+            int wrong = 0;
+            char wrongSimbol;
 
             Console.WriteLine("Введите символ открытия ( и символ закрытия ) в произвольном порядке, но каждый символ открытия" +
                 " должен обязательно быть закрыт");
@@ -26,6 +28,7 @@ namespace CSLight
             lengtSimbol = enterSimbol.Length;
             Console.WriteLine("Длина строки " + lengtSimbol);
 
+            //(()))(
             for (int i = 0; i < lengtSimbol; i++)
             {
                 if (enterSimbol[i] == countSimbolA)
@@ -39,11 +42,25 @@ namespace CSLight
                 }
             }
 
+            for (int i = 1; i < lengtSimbol; i++)
+            {
+                if (enterSimbol[i] == countSimbolB && enterSimbol[i + 1] == countSimbolA)
+                {
+                    Console.WriteLine("Выражение некорректно");
+                    wrong++;
+                    Console.WriteLine(enterSimbol);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(countSimbolB + countSimbolA);
+                    Console.ResetColor();
+                    break;
+                }
+            }
+
             if (currentDepth < 0)
             {
                 Console.WriteLine("Введено некорректное значение");
             }
-            else
+            else if (wrong == 0)
             {
                 Console.WriteLine("Все ок и глубина равна " + count);
             }
