@@ -1,4 +1,4 @@
-int[,] array = new int[10, 10];
+            int[,] array = new int[10, 10];
             Random random = new Random();
             int maximumValue = int.MinValue;
             int newValue = 0;
@@ -36,7 +36,6 @@ int[,] array = new int[10, 10];
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    Console.Write(array[i, j] + " ");
                     if (array[i, j] == newValue)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -45,6 +44,7 @@ int[,] array = new int[10, 10];
                     {
                         Console.ResetColor();
                     }
+                    Console.Write(array[i, j] + " ");
                 }
                 Console.WriteLine();
             }
