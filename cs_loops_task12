@@ -12,44 +12,54 @@ namespace gamesmage
     {
         static void Main(string[] args)
         {
+            const int ChoicePhysicalDamageHero = 1;
+            const int ChoiceFireDamageHero = 2;
+            const int ChoiceAirDamageHero = 3;
+            const int ChoiceColdDamageHero = 4;
 
             string physicalDamageHeroDescription = "5-15";
             string fireDamageHeroDescription = "30-65";
             string coldDamageHeroDescription = "8-25";
             string airDamageHeroDescription = "1-17";
 
-            const int ChoicePhysicalDamageHero = 1;
-            const int ChoiceFireDamageHero = 2;
-            const int ChoiceAirDamageHero = 3;
-            const int ChoiceColdDamageHero = 4;
+            int minPhysicalDamageHero = 5;
+            int maxPhysicalDamageHero = 15;
+            int minFireDamageHero = 30;
+            int maxFireDamageHero = 65;
+            int minColdDamageHero = 8;
+            int maxColdDamageHero = 25;
+            int minAirDamageHer = 1;
+            int maxAirDamageHer = 17;
+
+            int minPhysicalDamageCreation = 4;
+            int maxPhysicalDamageCreation = 12;
+            int minFireDamageCreation = 3;
+            int maxFireDamageCreation = 13;
+            int mincoldDamageCreation = 5;
+            int maxcoldDamageCreation = 10;
+            int minAirDamageCreation = 2;
+            int maxAirDamageCreation = 8;               
+
             int choiceSpell;
 
-            Random randomPhysicalDamageHero = new Random();
-            Random randomFireDamageHero = new Random();
-            Random randomAirDamageHero = new Random();
-            Random randomColdDamageHero = new Random();
+            Random random = new Random();            
 
             float physicalDamageHero;
             float fireDamageHero;
             float coldDamageHero;
             float airDamageHero;
 
-            string physicalDamageCreationDescription = "4-12";
-            string fireDamageCreationDescription = "3-13";
-            string coldDamageCreationDescription = "5-10";
-            string airDamageCreationDescription = "2-8";
-
-            Random randomPhysicalDamageCreation = new Random();
-            Random randomFireDamageCreation = new Random();
-            Random randomColdDamageCreation = new Random();
-            Random randomAirDamageCreation = new Random();
+            //string physicalDamageCreationDescription = "4-12";
+            //string fireDamageCreationDescription = "3-13";
+            //string coldDamageCreationDescription = "5-10";
+            //string airDamageCreationDescription = "2-8";
 
             float physicalDamageCreation;
             float fireDamageCreation;
             float coldDamageCreation;
             float airDamageCreation;
 
-            float physicalDefenseHero = 30;
+            float physicalDefenseHero =   30;
             float healthHero = 90;
             float fireDefenseHero = 25;
             float coldDefenseHero = 15;
@@ -61,7 +71,6 @@ namespace gamesmage
             float coldDefenseCreation = 25;
             float airDefenseCreation = 15;
 
-
             Console.WriteLine("Вы спускаетесь в подземелье и видите как нас бежит враг, перед спуском " +
                 "старейшена дал вам подсказку что при атаке врага, враг применяет аналогичное заклинание");
             Console.WriteLine("Приготовтесь враг вышел, для продолжения нажмите любуюкномку");
@@ -70,8 +79,6 @@ namespace gamesmage
 
             while (healthHero >0 && healthCreation >0)
             {
-
-
                 Console.WriteLine("Характеристики героя:\n" + "Защита: " + physicalDefenseHero + "\n" + "Здоровье: " + healthHero + "\n" +
                      "Огненная защита: " + fireDefenseHero + "\n" + "Защита от холода: " + coldDefenseHero + "\n" + "Защита от воздуха: " + airDefenseHero);
 
@@ -101,44 +108,44 @@ namespace gamesmage
                 switch (choiceSpell)
                 {
                     case ChoicePhysicalDamageHero:
-                        physicalDamageHero = randomPhysicalDamageHero.Next(5, 15);
+                        physicalDamageHero = random.Next(minPhysicalDamageHero, maxPhysicalDamageHero);
                         Console.WriteLine($"Вы наноситие {physicalDamageHero} урона врагу");
                         healthCreation -= physicalDamageHero -((physicalDamageHero/100) * physicalDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        physicalDamageCreation = randomPhysicalDamageCreation.Next(4, 12);
+                        physicalDamageCreation = random.Next(minPhysicalDamageCreation, maxPhysicalDamageCreation);
                         Console.WriteLine($"Враг в ответ наносит {physicalDamageCreation} урона вам");
                         healthHero -= physicalDamageCreation - ((physicalDamageCreation / 100) * physicalDefenseHero);
                         Console.WriteLine($"У вас осталось {healthHero} здоровья");                       
                         break;
                    
                     case ChoiceFireDamageHero:
-                        fireDamageHero = randomFireDamageHero.Next(30, 65);
+                        fireDamageHero = random.Next(minFireDamageHero, maxFireDamageHero);
                         Console.WriteLine($"Вы наноситие {fireDamageHero} урона врагу");
                         healthCreation -= fireDamageHero - ((fireDamageHero / 100) * fireDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        fireDamageCreation = randomFireDamageCreation.Next(3, 13);
+                        fireDamageCreation = random.Next(minFireDamageCreation, maxFireDamageCreation);
                         Console.WriteLine($"Враг в ответ наносит {fireDamageCreation} урона вам");
                         healthHero -= fireDamageCreation - ((fireDamageCreation / 100) * fireDefenseHero);
                         Console.WriteLine($"У вас осталось {healthHero} здоровья");                       
                         break;
 
                     case ChoiceAirDamageHero:
-                        airDamageHero = randomAirDamageHero.Next(1, 7);
+                        airDamageHero = random.Next(minAirDamageHer, maxAirDamageHer);
                         Console.WriteLine($"Вы наноситие {airDamageHero} урона врагу");
                         healthCreation -= airDamageHero - ((airDamageHero / 100) * airDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        airDamageCreation = randomAirDamageCreation.Next(2, 8);
+                        airDamageCreation = random.Next(minAirDamageCreation, maxAirDamageCreation);
                         Console.WriteLine($"Враг в ответ наносит {airDamageCreation} урона вам");
                         healthHero -= airDamageCreation - ((airDamageCreation / 100) * airDefenseHero);
                         Console.WriteLine($"У вас осталось {healthHero} здоровья");
                         break;
 
                     case ChoiceColdDamageHero:
-                        coldDamageHero = randomColdDamageHero.Next(8, 25);
+                        coldDamageHero = random.Next(minColdDamageHero, maxColdDamageHero);
                         Console.WriteLine($"Вы наноситие {coldDamageHero} урона врагу");
                         healthCreation -= coldDamageHero - ((coldDamageHero / 100) * coldDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        coldDamageCreation = randomColdDamageCreation.Next(5, 10);
+                        coldDamageCreation = random.Next(mincoldDamageCreation, maxcoldDamageCreation);
                         Console.WriteLine($"Враг в ответ наносит {coldDamageCreation} урона вам");
                         healthHero -= coldDamageCreation - ((coldDamageCreation / 100) * coldDefenseHero);
                         Console.WriteLine($"У вас осталось {healthHero} здоровья");
@@ -147,7 +154,6 @@ namespace gamesmage
                         default:
                         Console.WriteLine("Ввели некорректное значение");
                         break;
-
                 };
 
                 Console.ReadKey();
@@ -158,19 +164,16 @@ namespace gamesmage
             {
                 Console.WriteLine("Ничья");
             }
-
-            else if (healthHero <= 0 || healthCreation > 0)
+            else if (healthHero <= 0)
             {
-                Console.WriteLine("Победил врг");
+                Console.WriteLine("Победил враг");
             }
-
-            else if (healthHero > 0 || healthCreation <= 0)
+            else if (healthCreation <= 0)
             {
                 Console.WriteLine("Победил герой");
             }
 
             Console.ReadKey();
-
         }
 
     }
