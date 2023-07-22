@@ -1,0 +1,31 @@
+            int[] array = new int[30];
+            Random random = new Random();
+            int minValue = 1;
+            int maxValue = 30;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(minValue, maxValue);
+
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Ниже отобразятся зеленным цветом локальные максимумы");
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (i != 0 && i != 29 && array[i] > array[i - 1] && array[i] > array[i + 1])
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                else
+                {
+                    Console.ResetColor();
+                }
+                Console.Write(array[i] + " ");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
