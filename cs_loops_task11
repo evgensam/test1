@@ -20,58 +20,56 @@ namespace CSLight
             int currentDepth = 0;
             int count = 0;
             int wrong = 0;
-            char wrongSimbol;
 
             Console.WriteLine("Введите символ открытия ( и символ закрытия ) в произвольном порядке, но каждый символ открытия" +
-                " должен обязательно быть закрыт");
+                " должен обязательно быть закрыт" + " выражение типа (()))( не должно работать" +
+                " максимальная глубина должа быть не больше 3");
             enterSimbol = Console.ReadLine();
             lengtSimbol = enterSimbol.Length;
             Console.WriteLine("Длина строки " + lengtSimbol);
 
-            //(()))(
             for (int i = 0; i < lengtSimbol; i++)
             {
                 if (enterSimbol[i] == countSimbolA)
                 {
                     currentDepth++;
                     count++;
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(countSimbolA);
+                    wrong++;
 
                 }
                 else if (enterSimbol[i] == countSimbolB)
                 {
-                    currentDepth--;
+                    count--;
                 }
-                else if (count <0 )
+
+                else if (count == 0)
+                {
+                    wrong++;
+                }
+            }
+            for (int i = 0; i < lengtSimbol; i++)
+            {
+                if (count < 0 || count > 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(enterSimbol[i]);
                 }
+                    Console.ResetColor();
             }
 
-            //for (int i = 1; i < lengtSimbol; i++)
-            //{
-            //    if (enterSimbol[i] == countSimbolB && enterSimbol[i + 1] == countSimbolA)
-            //    {
-            //        Console.WriteLine("Выражение некорректно");
-            //        wrong++;
-            //        Console.WriteLine(enterSimbol);
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.Write(countSimbolB + countSimbolA);
-            //        Console.ResetColor();
-            //        break;
-            //    }
-            //}
-
-            if (currentDepth < 0)
+            if (count < 0)
             {
                 Console.WriteLine("Введено некорректное значение");
             }
-            else if (wrong == 0)
+            else if (count == 0)
             {
-                Console.WriteLine("Все ок и глубина равна " + count);
+                Console.WriteLine("Все ок и глубина равна " + wrong);
             }
+            else if (enterSimbol[0] == countSimbolB)
+            {
+                Console.WriteLine("Первый символ не может начинаться с" + countSimbolB);
+            }
+
             Console.ReadKey();
         }
     }
