@@ -1,0 +1,57 @@
+           string namber;
+            int variable;
+            string sum;
+            int count = 0;
+            int[] bag = new int[count];
+            int[] tempBag = new int[count];
+            int total = 0;
+            string exit;
+
+            while (true)
+            {
+                Console.WriteLine("Введите число/sum/exit");
+                namber = Console.ReadLine();
+                if (namber != "sum" && namber != "exit")
+                {
+                    variable = Convert.ToInt32(namber);
+                    count += 1;
+                    bag = new int[count];
+                    tempBag = new int[count + 1];
+
+                    for (int i = 0; i < bag.Length; i++)
+                    {
+                        bag[i] = variable;
+                        tempBag[i] = bag[i];
+                        Console.WriteLine("значение" + bag[i]);
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Размер массива" + count);
+
+                    tempBag[count - 1] = variable;
+                    bag = tempBag;
+                }
+
+                else if (namber == "sum")
+                {
+                    for (int i = 0; i < bag.Length; i++)
+                    {
+
+                        total += bag[i];
+                    }
+                    Console.WriteLine("Сумма введенных чисел равно " + total);
+                }
+
+                else if (namber == "exit")
+                {
+                    break;
+                }
+
+                else
+                {
+                    Console.WriteLine("Ошибка");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Длина bag " + bag.Length);
+                Console.ReadKey();
+            }
