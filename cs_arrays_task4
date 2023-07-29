@@ -1,49 +1,52 @@
-           string namber;
-            int variable;
+            string number;
+            int enterNumber;
             string sum;
             int count = 0;
-            int[] bag = new int[count];
-            int[] tempBag = new int[count];
-            int total = 0;
+            int[] array = new int[count];
             string exit;
+            bool isOpen = true;
 
-            while (true)
+            while (isOpen)
             {
-                Console.WriteLine("Введите число/sum/exit");
-                namber = Console.ReadLine();
-                if (namber != "sum" && namber != "exit")
+                Console.WriteLine("Значение массива");
+                for (int i = 0;i<array.Length-1;i++)
                 {
-                    variable = Convert.ToInt32(namber);
-                    count += 1;
-                    bag = new int[count];
-                    tempBag = new int[count + 1];
-
-                    for (int i = 0; i < bag.Length; i++)
+                    Console.Write(array[i] + " ");
+                }
+                Console.WriteLine();
+                Console.WriteLine("Введите число/sum/exit");
+                number = Console.ReadLine();
+                count += 1;
+                if (number != "sum" && number != "exit")
+                {
+                    enterNumber = Convert.ToInt32(number);
+                    int[] tempArray = new int[count + 1];
+                    for (int i = 0; i < array.Length; i++)
                     {
-                        bag[i] = variable;
-                        tempBag[i] = bag[i];
-                        Console.WriteLine("значение" + bag[i]);
+                        tempArray[i] = array[i];
+                        Console.WriteLine("значение" + array[i] + " ");
                     }
                     Console.WriteLine();
                     Console.WriteLine("Размер массива" + count);
-
-                    tempBag[count - 1] = variable;
-                    bag = tempBag;
+                    tempArray[count - 1] = enterNumber;
+                    array = tempArray;
+                    
                 }
 
-                else if (namber == "sum")
+                else if (number == "sum")
                 {
-                    for (int i = 0; i < bag.Length; i++)
+                    int total = 0;
+                    for (int i = 0; i < array.Length; i++)
                     {
-
-                        total += bag[i];
+                        
+                        total += array[i];
                     }
                     Console.WriteLine("Сумма введенных чисел равно " + total);
                 }
 
-                else if (namber == "exit")
+                else if (number == "exit")
                 {
-                    break;
+                    isOpen = false;
                 }
 
                 else
@@ -52,6 +55,5 @@
                 }
 
                 Console.WriteLine();
-                Console.WriteLine("Длина bag " + bag.Length);
+                Console.WriteLine("Длина массива array " + array.Length + " нажмите люую кнопку");
                 Console.ReadKey();
-            }
