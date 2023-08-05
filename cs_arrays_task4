@@ -17,7 +17,6 @@
                 Console.WriteLine();
                 Console.WriteLine("Введите число/sum/exit");
                 number = Console.ReadLine();
-
                 
                 if (number != sum && number != exit)
                 {
