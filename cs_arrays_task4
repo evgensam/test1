@@ -1,8 +1,7 @@
-string number;
+            string number;
             int enterNumber;
             string sum = "sum";
-            int count = 0;
-            int[] array = new int[count];
+            int[] array = new int[0];
             string exit = "exit";
             bool isOpen = true;
 
@@ -10,7 +9,7 @@ string number;
             {
                 Console.WriteLine("Значение массива");
                 
-                for (int i = 0;i<array.Length-1;i++)
+                for (int i = 0;i<array.Length;i++)
                 {
                     Console.Write(array[i] + " ");
                 }
@@ -18,12 +17,12 @@ string number;
                 Console.WriteLine();
                 Console.WriteLine("Введите число/sum/exit");
                 number = Console.ReadLine();
-                count += 1;
+
                 
                 if (number != sum && number != exit)
                 {
                     enterNumber = Convert.ToInt32(number);
-                    int[] tempArray = new int[count + 1];
+                    int[] tempArray = new int[array.Length + 1];
                     
                     for (int i = 0; i < array.Length; i++)
                     {
@@ -32,8 +31,8 @@ string number;
                     }
                     
                     Console.WriteLine();
-                    Console.WriteLine("Размер массива" + count);
-                    tempArray[count - 1] = enterNumber;
+                    Console.WriteLine("Размер массива" + tempArray.Length);
+                    tempArray[tempArray.Length - 1] = enterNumber;
                     array = tempArray;                    
                 }
                 else if (number == sum)
