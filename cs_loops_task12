@@ -1,17 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace gamesmage
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
             const string ChoicePhysicalDamageHero = "1";
             const string ChoiceFireDamageHero = "2";
             const string ChoiceAirDamageHero = "3";
@@ -37,11 +23,11 @@ namespace gamesmage
             int minAirDamageCreation = 2;
             int maxAirDamageCreation = 8;
 
-            int freeze = 0;
+            int skipTurn = 0;
 
             string choiceSpell;
 
-            Random random = new Random();            
+            Random random = new Random();
 
             float physicalDamageHero;
             float fireDamageHero;
@@ -53,7 +39,7 @@ namespace gamesmage
             float coldDamageCreation;
             float airDamageCreation;
 
-            float physicalDefenseHero =   30;
+            float physicalDefenseHero = 30;
             float healthHero = 90;
             float fireDefenseHero = 25;
             float coldDefenseHero = 15;
@@ -71,22 +57,22 @@ namespace gamesmage
             Console.ReadKey();
             Console.Clear();
 
-            while (healthHero >0 && healthCreation >0)
+            while (healthHero > 0 && healthCreation > 0)
             {
                 Console.WriteLine("Характеристики героя:\n" + "Защита: " + physicalDefenseHero + "\n" + "Здоровье: " + healthHero + "\n" +
                      "Огненная защита: " + fireDefenseHero + "\n" + "Защита от холода: " + coldDefenseHero + "\n" + "Защита от воздуха: " + airDefenseHero);
 
                 Console.SetCursorPosition(26, 0);
                 Console.WriteLine("Характеристики врага:");
-                Console.SetCursorPosition(26,1);
+                Console.SetCursorPosition(26, 1);
                 Console.WriteLine("Защита: " + physicalDefenseCreation);
-                Console.SetCursorPosition(26,2);
+                Console.SetCursorPosition(26, 2);
                 Console.WriteLine("Здоровье: " + healthCreation);
-                Console.SetCursorPosition(26,3);
+                Console.SetCursorPosition(26, 3);
                 Console.WriteLine("Огненная защита: " + fireDefenseCreation);
-                Console.SetCursorPosition(26,4);
+                Console.SetCursorPosition(26, 4);
                 Console.WriteLine("Защита от холода: " + coldDefenseCreation);
-                Console.SetCursorPosition(26,5);
+                Console.SetCursorPosition(26, 5);
                 Console.WriteLine("Защита от воздуха: " + airDefenseCreation);
 
                 Console.WriteLine();
@@ -105,12 +91,13 @@ namespace gamesmage
                     case ChoicePhysicalDamageHero:
                         physicalDamageHero = random.Next(minPhysicalDamageHero, maxPhysicalDamageHero);
                         Console.WriteLine($"Вы наноситие {physicalDamageHero} урона врагу");
-                        healthCreation -= physicalDamageHero -((physicalDamageHero/percentageDamage) * physicalDefenseCreation);
+                        healthCreation -= physicalDamageHero - ((physicalDamageHero / percentageDamage) * physicalDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        if (freeze > 0)
+
+                        if (skipTurn > 0)
                         {
-                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + freeze + "ход");
-                            freeze--;
+                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + skipTurn + "ход");
+                            skipTurn--;
                         }
                         else
                         {
@@ -118,18 +105,18 @@ namespace gamesmage
                             Console.WriteLine($"Враг в ответ наносит {physicalDamageCreation} урона вам");
                             healthHero -= physicalDamageCreation - ((physicalDamageCreation / percentageDamage) * physicalDefenseHero);
                             Console.WriteLine($"У вас осталось {healthHero} здоровья");
-                        }                       
+                        }
                         break;
-                   
+
                     case ChoiceFireDamageHero:
                         fireDamageHero = random.Next(minFireDamageHero, maxFireDamageHero);
                         Console.WriteLine($"Вы наноситие {fireDamageHero} урона врагу");
                         healthCreation -= fireDamageHero - ((fireDamageHero / percentageDamage) * fireDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        if (freeze > 0)
+                        if (skipTurn > 0)
                         {
-                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + freeze + "ход");
-                            freeze--;
+                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + skipTurn + "ход");
+                            skipTurn--;
                         }
                         else
                         {
@@ -145,10 +132,11 @@ namespace gamesmage
                         Console.WriteLine($"Вы наноситие {airDamageHero} урона врагу");
                         healthCreation -= airDamageHero - ((airDamageHero / percentageDamage) * airDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        if (freeze > 0)
+                        
+                        if (skipTurn > 0)
                         {
-                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + freeze + "ход");
-                            freeze--;
+                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + skipTurn + "ход");
+                            skipTurn--;
                         }
                         else
                         {
@@ -164,10 +152,11 @@ namespace gamesmage
                         Console.WriteLine($"Вы наноситие {coldDamageHero} урона врагу");
                         healthCreation -= coldDamageHero - ((coldDamageHero / percentageDamage) * coldDefenseCreation);
                         Console.WriteLine($"У врага осталось {healthCreation} здоровья");
-                        if (freeze > 0)
+                        
+                        if (skipTurn > 0)
                         {
-                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + freeze + "ход");
-                            freeze--;
+                            Console.WriteLine("Враг не может ответить, т.к. заморожен на" + skipTurn + "ход");
+                            skipTurn--;
                         }
                         else
                         {
@@ -179,8 +168,8 @@ namespace gamesmage
                         break;
 
                     case ChoiceFreeze:
-                        freeze++;
-                        Console.WriteLine($"Вы замораживаете врага и он пропускает {freeze} ход");
+                        skipTurn++;
+                        Console.WriteLine($"Вы замораживаете врага и он пропускает {skipTurn} ход");
                         break;
 
                     default:
@@ -206,6 +195,3 @@ namespace gamesmage
             }
 
             Console.ReadKey();
-        }
-    }
-}
