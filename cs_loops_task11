@@ -1,39 +1,42 @@
-            string enterSimbol;
-            int lengtSimbol;
-            char countSimbolA = '(';
-            char countSimbolB = ')';
-            int count = 0;
-            int wrong = 0;
+string inputSymbols;
+            char openBracket = '(';
+            char leftBracket = ')';
+            int currentDepth = 0;
+            int maximumDepth = 0;
 
-            Console.WriteLine("Введите символ открытия ( и символ закрытия ) в произвольном порядке, но каждый символ открытия" +
+            Console.WriteLine("введите символ открытия ( и символ закрытия ) в произвольном порядке, но каждый символ открытия" +
                 " должен обязательно быть закрыт" + " выражение типа (()))( не должно работать" +
                 " максимальная глубина должа быть не больше 3");
-            enterSimbol = Console.ReadLine();
-            lengtSimbol = enterSimbol.Length;
+            inputSymbols = Console.ReadLine();
 
-            for (int i = 0; i < lengtSimbol; i++)
+            for (int i = 0; i < inputSymbols.Length; i++)
             {
-                if (enterSimbol[i] == countSimbolA)
+                if (inputSymbols[i] == openBracket)
                 {
-                    count++;
+                    currentDepth++;
                 }
-                else if (enterSimbol[i] == countSimbolB)
+                else if (inputSymbols[i] == leftBracket)
                 {
-                    if (i != lengtSimbol - 1 && enterSimbol[i + 1] != countSimbolA)
-                    {
-                        count--;
-                        wrong++;
-                    }
+                    currentDepth--;
+                }
+                else if (currentDepth == 0)
+                {
+                    maximumDepth++;
                 }
             }
-            
-            if (count > 0) 
+
+            if (currentDepth > 0)
             {
-                Console.WriteLine("Все верно и глубина " + (wrong +1) + " для строки " + enterSimbol);
+                Console.WriteLine("все верно и глубина " + maximumDepth + " для строки " + inputSymbols);
             }
-            else if (count <0)
+            else if (currentDepth < 0)
             {
-                Console.WriteLine("Ошибка в строке");
+                Console.WriteLine("ошибка в строке");
             }
-            
+
+            else if (maximumDepth > 3)
+            {
+                Console.WriteLine("Максимальная глубина не может быть больше 3");
+            }
+
             Console.ReadKey();
