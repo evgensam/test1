@@ -1,11 +1,21 @@
-string name = "Иванов";
-string surname = "Ваня";
-string tempName;
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = "Иванов";
+            string surname = "Ваня";
+            string tempName;
 
-Console.WriteLine("Имя: " + name + " Фамилия: " + surname);
+            Console.WriteLine("Имя: " + name + " Фамилия: " + surname);
 
-tempName = name;
-name = surname;
-surname = tempName;
+            tempName = name;
+            name = surname;
+            surname = tempName;
 
-Console.WriteLine("Имя: " + name + " Фамилия: " + surname);
+            Console.WriteLine("Имя: " + name + " Фамилия: " + surname);
+            Console.ReadKey();
+        }
+    }
+}
