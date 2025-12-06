@@ -1,16 +1,28 @@
-int money;
-int priceOfCrystals = 5;
-int countCrystal;
-bool restOfMoney;
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int money;
+            int priceOfCrystals = 5;
+            int countCrystal;
+            bool hasEnoughMoney;
 
-Console.WriteLine("Добро пожаловать в магазин! Стоимость одного кристала: " +
-     +priceOfCrystals + "тубриков");
-Console.Write("Сколько у вас денег:");
-money = Convert.ToInt32(Console.ReadLine());
-Console.Write("Сколько кристалов вы хотите купить?");
-countCrystal = Convert.ToInt32(Console.ReadLine());
-restOfMoney = money >= countCrystal * priceOfCrystals;
-countCrystal *= Convert.ToInt32(restOfMoney);
-money -= countCrystal * priceOfCrystals;
-Console.Write("У вас " + countCrystal + " кристалов и осталось " + money +
-    " тубриков");
+            Console.WriteLine("Добро пожаловать в магазин! Стоимость одного кристала: " +
+                priceOfCrystals + " тубриков");
+            Console.Write("Сколько у вас денег: ");
+            money = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Сколько кристалов вы хотите купить? ");
+            countCrystal = Convert.ToInt32(Console.ReadLine());
+
+            hasEnoughMoney = money >= countCrystal * priceOfCrystals;
+            countCrystal *= Convert.ToInt32(hasEnoughMoney);
+            money -= countCrystal * priceOfCrystals;
+
+            Console.Write("У вас " + countCrystal + " кристалов и осталось " + money +
+                " тубриков");
+            Console.ReadLine();
+        }
+    }
+}
