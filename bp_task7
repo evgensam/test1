@@ -4,21 +4,21 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            int timeMinutesOneOldlady = 10;
-            int timeMinutesOneHour = 60;
-            int timeAmoutHours;
-            int amoutOfOldLady;
-            int timeAmoutMinutes;
+            int appointmentDuration = 10;
+            int minutesPerHour = 60;
+            int numberOfElderlyLadies;
+            int totalMinutesForElderlyLadies;
 
-            Console.Write("Введите кол-во старушек:");
-            amoutOfOldLady = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите количество старушек: ");
+            numberOfElderlyLadies = Convert.ToInt32(Console.ReadLine());
 
-            timeAmoutHours = timeMinutesOneOldlady * amoutOfOldLady / timeMinutesOneHour;
-            timeAmoutMinutes = timeMinutesOneOldlady * amoutOfOldLady % timeMinutesOneHour;
+            // Вычисляем общее время после получения ввода
+            totalMinutesForElderlyLadies = appointmentDuration * numberOfElderlyLadies;
 
-            Console.Write("Вы должны отстоятьт в очереди " + timeAmoutHours +
-                " час " + timeAmoutMinutes + " минут");
+            int hoursInQueue = totalMinutesForElderlyLadies / minutesPerHour;
+            int minutesInQueue = totalMinutesForElderlyLadies % minutesPerHour;
+
+            Console.WriteLine($"Вы должны отстоять в очереди {hoursInQueue} час(а/ов) и {minutesInQueue} минут(ы)");
             Console.ReadKey();
         }
     }
-}
