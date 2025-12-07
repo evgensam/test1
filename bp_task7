@@ -1,14 +1,24 @@
-int timeMinutesOneOldlady = 10;
-int timeMinutesOneHour = 60;
-int timeAmoutHours;
-int amoutOfOldLady;
-int timeAmoutMinutes;
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int timeMinutesOneOldlady = 10;
+            int timeMinutesOneHour = 60;
+            int timeAmoutHours;
+            int amoutOfOldLady;
+            int timeAmoutMinutes;
 
-Console.Write("Введите кол-во старушек:");
-amoutOfOldLady = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите кол-во старушек:");
+            amoutOfOldLady = Convert.ToInt32(Console.ReadLine());
 
-timeAmoutHours = timeMinutesOneOldlady * amoutOfOldLady/ timeMinutesOneHour;
-timeAmoutMinutes = timeMinutesOneOldlady * amoutOfOldLady % timeMinutesOneHour;
+            timeAmoutHours = timeMinutesOneOldlady * amoutOfOldLady / timeMinutesOneHour;
+            timeAmoutMinutes = timeMinutesOneOldlady * amoutOfOldLady % timeMinutesOneHour;
 
-Console.Write("Вы должны отстоятьт в очереди " + timeAmoutHours +
-    " час " + timeAmoutMinutes + " минут");
+            Console.Write("Вы должны отстоятьт в очереди " + timeAmoutHours +
+                " час " + timeAmoutMinutes + " минут");
+            Console.ReadKey();
+        }
+    }
+}
