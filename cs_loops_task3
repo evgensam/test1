@@ -1,8 +1,25 @@
-int firstValue = 5; 
-int lastValue = 96;
-int step = 7;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-for (int i = firstValue; i <= lastValue; i += step)
+namespace ConsoleApp3
 {
-    Console.WriteLine(i);
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int firstValue = 5;
+            int lastValue = 96;
+            int step = 7;
+
+            for (int i = firstValue; i <= lastValue; i += step)
+            {
+                Console.WriteLine(i);
+            }
+            Console.ReadKey();
+        }
+    }
 }
