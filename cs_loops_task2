@@ -1,9 +1,25 @@
-string exit = "exit";
-string test;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-test = Console.ReadLine();
-
-while (test !=exit)
+namespace ConsoleApp3
 {
-    test = Console.ReadLine();
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string exit = "exit";
+            string test;
+
+            test = Console.ReadLine();
+
+            while (test != exit)
+            {
+                test = Console.ReadLine();
+            }
+        }
+    }
 }
