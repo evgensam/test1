@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            const string CommandHello = "hello";
+            const string CommandHelp = "help";
+            const string CommandRandom = "random";
+            const string CommandClear = "clear";
+            const string CommandExit = "exit";
+
+            Random random = new Random();
+
+            bool programIsRunning = true;
+
+            Console.WriteLine("Команды консоли:");
+            Console.WriteLine($"{CommandHello} - вывод приветствие");
+            Console.WriteLine($"{CommandHelp} - вывод справки");
+            Console.WriteLine($"{CommandRandom} - показать случайное число");
+            Console.WriteLine($"{CommandClear} - очистить консоль");
+            Console.WriteLine($"{CommandExit} - выход из программы");
+            Console.WriteLine($"---------------");
+            while (programIsRunning)
+            {
+                Console.Write("Введите команду: ");
+                string userCommand = Console.ReadLine();
+
+                if (userCommand == CommandHello)
+                {
+                    Console.WriteLine("Привет! Это консольное меню.");
+                    Console.WriteLine("Здесь можно выполнять разные команды.");
+                }
+                else if (userCommand == CommandHelp)
+                {
+                    Console.WriteLine("Справка");
+                    Console.WriteLine($"{CommandHello} - приветственное сообщение");
+                    Console.WriteLine($"{CommandHelp} - вывод справки");
+                    Console.WriteLine($"{CommandRandom} - случайное число от 0 до 50");
+                    Console.WriteLine($"{CommandClear} - очистить консоль");
+                    Console.WriteLine($"{CommandExit} - выход из программы");
+                    Console.WriteLine($"---------------");
+                }
+                else if (userCommand == CommandRandom)
+                {
+                    int randomNumber = random.Next(0, 50); 
+                    Console.WriteLine($"Случайное число: {randomNumber}");
+                }
+                else if (userCommand == CommandClear)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Экран очищен! Введите команду:");
+                }
+                else if (userCommand == CommandExit)
+                {
+                    
+                    programIsRunning = false;
+                }
+                else
+                {
+                    Console.WriteLine($"Некоррекная команда: {userCommand}");
+                }
+            }
+
+            Console.ReadKey();
+    }
+    }
+}
