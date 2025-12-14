@@ -12,7 +12,7 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             int firstValue = 5;
-            int lastValue = 96;
+            int lastValue = 103;
             int step = 7;
 
             for (int i = firstValue; i <= lastValue; i += step)
