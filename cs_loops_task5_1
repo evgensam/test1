@@ -11,66 +11,76 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            
-            const string CommandHello = "hello";
+
+            const string CommandText = "text";
             const string CommandHelp = "help";
             const string CommandRandom = "random";
             const string CommandClear = "clear";
             const string CommandExit = "exit";
 
             Random random = new Random();
-
             bool programIsRunning = true;
 
             Console.WriteLine("Команды консоли:");
-            Console.WriteLine($"{CommandHello} - вывод приветствие");
+            Console.WriteLine($"{CommandText} - ввести и отобразить текст");
             Console.WriteLine($"{CommandHelp} - вывод справки");
             Console.WriteLine($"{CommandRandom} - показать случайное число");
             Console.WriteLine($"{CommandClear} - очистить консоль");
             Console.WriteLine($"{CommandExit} - выход из программы");
-            Console.WriteLine($"---------------");
+            Console.WriteLine("---------------");
+
             while (programIsRunning)
             {
                 Console.Write("Введите команду: ");
                 string userCommand = Console.ReadLine();
 
-                if (userCommand == CommandHello)
+                if (userCommand == CommandText)
                 {
-                    Console.WriteLine("Привет! Это консольное меню.");
-                    Console.WriteLine("Здесь можно выполнять разные команды.");
+                    Console.Write("Введите любой текст: ");
+                    string userText = Console.ReadLine();
+                    Console.WriteLine($"Вы ввели: {userText}");
                 }
                 else if (userCommand == CommandHelp)
                 {
                     Console.WriteLine("Справка");
-                    Console.WriteLine($"{CommandHello} - приветственное сообщение");
+                    Console.WriteLine($"{CommandText} - ввести и отобразить текст");
                     Console.WriteLine($"{CommandHelp} - вывод справки");
                     Console.WriteLine($"{CommandRandom} - случайное число от 0 до 50");
                     Console.WriteLine($"{CommandClear} - очистить консоль");
                     Console.WriteLine($"{CommandExit} - выход из программы");
-                    Console.WriteLine($"---------------");
+                    Console.WriteLine("---------------");
                 }
                 else if (userCommand == CommandRandom)
                 {
-                    int randomNumber = random.Next(0, 50); 
+                    int randomNumber = random.Next(0, 50);
                     Console.WriteLine($"Случайное число: {randomNumber}");
                 }
                 else if (userCommand == CommandClear)
                 {
                     Console.Clear();
                     Console.WriteLine("Экран очищен! Введите команду:");
+                    Console.WriteLine("Команды консоли:");
+                    Console.WriteLine($"{CommandText} - ввести и отобразить текст");
+                    Console.WriteLine($"{CommandHelp} - вывод справки");
+                    Console.WriteLine($"{CommandRandom} - показать случайное число");
+                    Console.WriteLine($"{CommandClear} - очистить консоль");
+                    Console.WriteLine($"{CommandExit} - выход из программы");
+                    Console.WriteLine("---------------");
                 }
                 else if (userCommand == CommandExit)
                 {
-                    
                     programIsRunning = false;
                 }
                 else
                 {
-                    Console.WriteLine($"Некоррекная команда: {userCommand}");
+                    Console.WriteLine($"Некорректная команда: {userCommand}");
+                    Console.WriteLine($"Введите {CommandHelp} для просмотра доступных команд");
                 }
+
+                Console.WriteLine();
             }
 
             Console.ReadKey();
-    }
+        }
     }
 }
